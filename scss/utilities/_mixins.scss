@@ -1,0 +1,73 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+
+
+// Viewport breakpoints 
+@mixin viewport($break) {
+    
+    @if $break == "small" { // small generally used for mobile phones
+        @media (min-width: $brkpoint-sm) and (max-width: #{$brkpoint-md - 1}) { // between 320px and 767px
+            @content;
+        }
+    }
+    @else if $break == "smedium" {
+        @media (max-width: $brkpoint-smd) {
+            @content;
+        }
+    }
+    @else if $break == "medium" { 
+        @media (min-width: $brkpoint-md) and (max-width: #{$brkpoint-lg - 1}) { // between 768px and 991px
+            @content;
+        }
+    }
+    @else if $break == "large" { // large generally used for desktop monitors
+        @media (min-width: $brkpoint-lg) and (max-width: #{$brkpoint-xlg - 1}) { // between 992px and 1259px
+            @content;
+        }
+    }
+    @else if $break == "x-large" { // extra large
+        @media (min-width: $brkpoint-xlg) { // greater than 1260px
+            @content;
+        }
+    }
+    @else {
+        @error "No value could be retrieved for break for `#{$break}`";
+    }
+
+    
+}
+
+// Project Block Format
+@mixin projectblock-format() {
+    top:0;
+    border: 1px solid blue;
+    border-radius: 0 0 2% 2%;
+    flex-direction: column;
+    
+    margin: 20px 20px;
+    position: relative;
+    transition: .5s ease;
+
+    &:hover {
+        top:-10px;
+        transition: .5s ease;
+    }
+    
+}
+
+// Button Format
+@mixin btn-format() {
+    font-family: $font-family--primary;
+    height: auto;
+    line-height: 35px;
+    padding: 5px 15px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: em($base-font-size);
+    border-radius: 3px;
+    background-color: grey;
+    color: white;
+    row-gap: em(10px);
+}

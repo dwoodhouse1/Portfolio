@@ -1,0 +1,100 @@
+// ==========================================================================
+// Forms
+// ==========================================================================
+
+.contact-form {
+    &__content {
+        display: grid;
+        width: 100%;
+        gap: 10px;
+        // grid-template-rows: auto auto auto auto auto auto;
+        // grid-template-columns: auto auto auto;
+    }
+
+    &__first-name {
+        
+    }
+}
+
+#contact-form {
+    &__first-name {
+        width: auto;
+        @include viewport(small) {
+
+        }
+
+        @include viewport(medium) {
+            width: 95%;
+        }
+        
+    }
+
+    &__last-name {
+        
+
+        @include viewport(medium) {
+            width: 95%;
+        }
+    }
+
+    &__email {
+        
+
+        @include viewport(medium) {
+            width: 95%;
+        }
+    }
+
+    &__subject {
+        
+
+        @include viewport(medium) {
+            width: 95%;
+        }
+    }
+
+    &__message {
+        
+
+        @include viewport(medium) {
+            width: 95%;
+        }
+    }
+}
+
+
+
+.contact-form__content {
+   
+}
+
+
+input {
+    font-family: $font-family--primary;
+    &[type=text] {
+        padding: 12px 20px;
+        font-size: 1.2rem;
+        position: center;
+        height: 40px;
+        background-color: lightgrey;
+        color: #606060;
+        border: 2px solid grey;
+        border-radius: 2px;
+
+        &:focus {
+            background-color: white;
+            color: black;
+        }
+    }
+
+    &::placeholder {
+        color: #606060;
+    }
+
+    
+}
+
+textarea {
+    @extend input;
+    resize: vertical;
+}

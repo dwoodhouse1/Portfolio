@@ -6,26 +6,126 @@
     <title>Drew Woodhouse | SCS Portfolio</title>
 
     <link rel="stylesheet" href="css/application.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="flex-container">
     <header>
         <div id="banner">
-            <hgroup>
+            <hgroup class="banner__heading">
                 <h1>Drew Woodhouse</h1>
-                <p>I like trains</p>
+                <p>Professional Idiot</p>
             </hgroup>
         </div>
-        Header Content will go here
     </header>
-
+    </div>
    <main>
-        Content between Header and Footer will go here
+        <div class="container">
+            <section id="projects">
+                <h1 class="text-center">Projects</h1>
+
+                <div class="project__grid">
+                    <div class="project__block">
+                        <img src="img/netmatters-homepage.jpg" alt="Netmatters Homepage">
+                        <div class="project__block-text">
+                            <h1>Netmatters Homepage</h1>
+                            <h2>The entire Netmatters Homepage recreated using HTML & CSS/SASS.</h2>
+                            <h3>View the project</h3>
+                        </div>
+                    </div>
+
+                    <div class="project__block">
+                        <img src="img/coming-soon.jpg" alt="Coming Soon">
+                        <div class="project__block-text">
+                            <h1>Project 2</h1>
+                            <h2> Coming soon...</h2>
+                        </div>
+                    </div>
+
+                    <div class="project__block">
+                        <img src="img/coming-soon.jpg" alt="Coming Soon">
+                        <div class="project__block-text">
+                            <h1>Project 3</h1>
+                            <h2> Coming soon...</h2>
+                        </div>
+                    </div>
+
+                    <div class="project__block">
+                        <img src="img/coming-soon.jpg" alt="Coming Soon">
+                        <div class="project__block-text">
+                            <h1>Project 4</h1>
+                            <h2> Coming soon...</h2>
+                        </div>
+                    </div>
+
+                    <div class="project__block">
+                        <img src="img/coming-soon.jpg" alt="Coming Soon">
+                        <div class="project__block-text">
+                            <h1>Project 5</h1>
+                            <h2> Coming soon...</h2>
+                        </div>
+                    </div>
+
+                    <div class="project__block">
+                        <img src="img/coming-soon.jpg" alt="Coming Soon">
+                        <div class="project__block-text">
+                            <h1>Project 6</h1>
+                            <h2> Coming soon...</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="container">
+            <section class="contact">
+                <div class="contact-me">
+                    <h1 class="text-center">Get In Touch </h1>
+                    <p class ="margin-left margin-right">If you are interested in knowing more about me, please fill out the form below with your first name, last name, email, the subject and the message you want
+                        to send me. I will be in touch as soon as possible.
+                    </p>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form" action="index.php" method="post">
+                        <div class="contact-form__content">
+                            <div class="contact-form__first-name">
+                                <input type="text" id="contact-form__first-name" name="first-name" placeholder="First Name *">
+                            </div>
+
+                            <div class="contact-form__last-name textbox-format">
+                                <input type="text" id="contact-form__last-name" name="last-name" placeholder="Last Name *">
+                            </div>
+
+                            <div class="contact-form__email">
+                                <input type="text" id="contact-form__email" name="email" placeholder="Email Address *">
+                            </div>
+
+                            <div class="contact-form__subject">
+                                <input type="text" id="contact-form__subject" name="subject" placeholder="Subject">
+                            </div>
+
+                            <div class="contact-form__message">
+                                <textarea type="text" id="contact-form__message" name="message" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <div class="contact-form__submit">
+                            <button class="btn__submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
    </main>
 
     <footer>
 
         <a href="#top" class="footer__top-link">
             Back to top
+        </a>
+
+        <a href="aboutme.html" class="footer__top-link">
+            About Me
         </a>
     </footer>
 </body>

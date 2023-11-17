@@ -1,0 +1,12 @@
+// ==========================================================================
+// Functions
+// ==========================================================================
+
+@function em($target, $context: $base-font-size) {
+	@return ($target / $context) * 1em;
+}
+
+@function toRem($value) {
+    $remValue: ($value / 16) + rem; 
+    @return $remValue;
+}
