@@ -13,14 +13,16 @@
 <body>
     <aside>
         <nav class="primary-nav ishidden">
-            <a href="index.html" class="primary-nav__logo">D W</a>
+            <a href="index.html" class="primary-nav__logo">
+                DW
+            </a>
             <div class="primary-nav__flex-container">
                 <ul class="primary-nav__pages">
-                    <li>About</li>
-                    <li>Portfolio</li>
-                    <li>Code Snippets</li>
-                    <li>SCS Scheme</li>
-                    <li>Contact</li>
+                    <li><a href="aboutme.html">About</a></li>
+                    <li><a href="#banner">Portfolio</a></li>
+                    <li><a href="codingexamples.html">Code Snippets</a></li>
+                    <li><a href="scsscheme.html">SCS Scheme</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -124,7 +126,7 @@
                 </section>
             </div>
             <div class="container">
-                <section class="contact">
+                <section id="contact">
                     <div class="contact-me">
                         <h1 class="text-center">Get In Touch </h1>
                         <p class ="margin-left margin-right">If you are interested in knowing more about me, please fill out the form below with your first name, last name, email, the subject and the message you want
@@ -164,14 +166,13 @@
         </main>
 
         <footer>
-
-            <a href="#top" class="footer__top-link">
-                Back to top
-            </a>
-
-            <a href="aboutme.html" class="footer__top-link">
-                About Me
-            </a>
+            <div class="footer__container">
+                <svg class="icon">
+                    <use href="icons/arrow-up.svg"></use>
+                </svg>
+                <h2><a href="#top" class="footer__top-link">Back to top </a></h2>
+            </div>
+            
         </footer>
     </div>
 </body>

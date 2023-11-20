@@ -2,9 +2,19 @@
 // Footer Section
 // ==========================================================================
 
-.footer__top-link {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    color: black;
+.footer {
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__top-link {
+        text-decoration: none;
+        color: $black;
+    }
+
+    
 }
+
