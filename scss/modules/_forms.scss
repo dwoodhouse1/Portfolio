@@ -2,6 +2,34 @@
 // Forms
 // ==========================================================================
 
+input {
+    font-family: $font-family--primary;
+
+    &[type=text] {
+        padding: 12px 20px;
+        font-size: 1.2rem;
+        position: center;
+        height: toRem(40);
+        width: 80%;
+        background-color: lightgrey;
+        color: #606060;
+        border: 2px solid $grey;
+        border-radius: 2px;
+
+
+        &:focus {
+            background-color: $white;
+            color: $black;
+        }
+    }
+
+    &::placeholder {
+        color: #606060;
+    }
+
+    
+}
+
 .contact-form {
     &__content {
         display: grid;
@@ -18,7 +46,10 @@
 
 #contact-form {
     &__first-name {
-        
+        &::placeholder {
+            color: $red;
+        }
+
         @include viewport(small) {
 
         }
@@ -26,19 +57,22 @@
         @include viewport(medium) {
             
         }
-        
     }
 
     &__last-name {
         
-
+        &::placeholder {
+            color: $red;
+        }
         @include viewport(medium) {
             
         }
     }
 
     &__email {
-        
+        &::placeholder {
+            color: $red;
+        }
 
         @include viewport(medium) {
             
@@ -60,39 +94,6 @@
             
         }
     }
-}
-
-
-
-.contact-form__content {
-   
-}
-
-
-input {
-    font-family: $font-family--primary;
-    &[type=text] {
-        padding: 12px 20px;
-        font-size: 1.2rem;
-        position: center;
-        height: 40px;
-        
-        background-color: lightgrey;
-        color: #606060;
-        border: 2px solid grey;
-        border-radius: 2px;
-
-        &:focus {
-            background-color: white;
-            color: black;
-        }
-    }
-
-    &::placeholder {
-        color: #606060;
-    }
-
-    
 }
 
 textarea {

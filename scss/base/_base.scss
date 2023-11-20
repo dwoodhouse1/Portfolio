@@ -14,8 +14,43 @@
     margin-right: toRem(10);
 }
 
+.margin-top {
+
+    @include viewport(medium) {
+        margin-top: toRem(56);
+    }
+}
+
+.margin-bottom {
+    @include viewport(medium) {
+        margin-bottom: toRem(55);
+    }
+
+    @include viewport(large) {
+        margin-bottom: toRem(55);
+    }
+}
+
+
+
 h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
+
+    @include viewport(medium) {
+        font-size: 3rem;
+    }
+
+    @include viewport(large) {
+        font-size: 3rem;
+    }
+
+    @include viewport(x-large) {
+        font-size: 3rem;
+    }
+}
+
+h2 {
+    font-size: 2rem;
 }
 
 footer {

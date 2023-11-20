@@ -59,6 +59,18 @@
    flex-direction: column;
 }
 
+.primary-nav__hamburger {
+    position: fixed;
+    z-index: 1;
+    vertical-align: middle;
+    top: toRem(20);
+    right: toRem(20);
+    
+    width: toRem(50);
+    height: toRem(50);
+
+}
+
 
 .ishidden {
     display: none;

@@ -9,8 +9,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="icons/favicon.PNG">
 </head>
 <body>
+
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <symbol id="icon-arrow-up" viewBox="0 0 32 32">
+                <path d="M27.414 12.586l-10-10c-0.781-0.781-2.047-0.781-2.828 0l-10 10c-0.781 0.781-0.781 2.047 0 2.828s2.047 0.781 2.828 0l6.586-6.586v19.172c0 1.105 0.895 2 2 2s2-0.895 2-2v-19.172l6.586 6.586c0.39 0.39 0.902 0.586 1.414 0.586s1.024-0.195 1.414-0.586c0.781-0.781 0.781-2.047 0-2.828z"></path>
+            </symbol>
+        </defs>
+    </svg>
+
+        <div class="primary-nav__hamburger">
+            <button type="button" class="primary-nav__hamburger hamburger hamburger-spin is-active">
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+        
+      
+
     <aside>
         <nav class="primary-nav ishidden">
             <a href="index.html" class="primary-nav__logo">
@@ -46,11 +66,11 @@
                     <div class="project__grid">
 
                         <div class="project__block project__block--hover">
-                            <div class="project__block--content">
-                                <img src="img/netmatters-homepage.jpg" alt="Netmatters Homepage">
+                            <div class="project__block--content project__block--content-height">
+                                <img src="img/netmatters-homepage.jpg" alt="Netmatters Homepage" class="project__block--image">
                                 <div class="project__block-text margin-left">
-                                    <h1>Netmatters Homepage</h1>
-                                    <h2>The entire Netmatters Homepage recreated using HTML & CSS/SASS.</h2>
+                                    <h2>Netmatters Homepage</h1>
+                                    <p>The entire Netmatters Homepage recreated using HTML & CSS/SASS.<p>
                                 </div>
                             </div>
                             <div class="project__block--view">
@@ -59,11 +79,11 @@
                         </div>
 
                         <div class="project__block project__block--hover">
-                            <div class="project__block--content">
+                            <div class="project__block--content project__block--content-height">
                                 <img src="img/coming-soon.jpg" alt="Coming Soon">
-                                <div class="project__block-text margin-left">
-                                    <h1>Project 2</h1>
-                                    <h2> Coming soon...</h2>
+                                <div class="project__block-text margin-left margin-bottom">
+                                    <h2>Project 2</h2>
+                                    <p>Coming soon...</p>
                                 </div>
                             </div>
                             <div class="project__block--view">
@@ -72,11 +92,11 @@
                         </div>
                     
                         <div class="project__block project__block--hover">
-                            <div class="project__block--content">
+                            <div class="project__block--content project__block--content-height">
                                 <img src="img/coming-soon.jpg" alt="Coming Soon">
-                                <div class="project__block-text margin-left">
-                                    <h1>Project 3</h1>
-                                    <h2> Coming soon...</h2>
+                                <div class="project__block-text margin-left margin-bottom">
+                                    <h2>Project 3</h2>
+                                    <p>Coming soon...</p>
                                 </div>
                             </div>
                             <div class="project__block--view">
@@ -85,11 +105,11 @@
                         </div>
 
                         <div class="project__block project__block--hover">
-                            <div class="project__block--content">
+                            <div class="project__block--content project__block--content-height">
                                 <img src="img/coming-soon.jpg" alt="Coming Soon">
                                 <div class="project__block-text margin-left">
-                                    <h1>Project 4</h1>
-                                    <h2> Coming soon...</h2>
+                                    <h2>Project 4</h2>
+                                    <p>Coming soon...</p>
                                 </div>
                             </div>
                             <div class="project__block--view">
@@ -98,11 +118,11 @@
                         </div>
 
                         <div class="project__block project__block--hover">
-                            <div class="project__block--content">
+                            <div class="project__block--content project__block--content-height">
                                 <img src="img/coming-soon.jpg" alt="Coming Soon">
                                 <div class="project__block-text margin-left">
-                                    <h1>Project 5</h1>
-                                    <h2> Coming soon...</h2>
+                                    <h2>Project 5</h2>
+                                    <p>Coming soon...</p>
                                 </div>
                             </div>
                             <div class="project__block--view">
@@ -111,11 +131,11 @@
                         </div>
 
                         <div class="project__block project__block--hover">
-                            <div class="project__block--content">
+                            <div class="project__block--content project__block--content-height">
                                 <img src="img/coming-soon.jpg" alt="Coming Soon">
                                 <div class="project__block-text margin-left">
-                                    <h1>Project 6</h1>
-                                    <h2> Coming soon...</h2>
+                                    <h2>Project 6</h2>
+                                    <p>Coming soon...</p>
                                 </div>
                             </div>
                             <div class="project__block--view">
@@ -167,10 +187,13 @@
 
         <footer>
             <div class="footer__container">
-                <svg class="icon">
-                    <use href="icons/arrow-up.svg"></use>
-                </svg>
-                <h2><a href="#top" class="footer__top-link">Back to top </a></h2>
+                
+                <a href="#top" class="footer__top-link">
+                    <svg class="icon icon-arrow-up"><use xlink:href="#icon-arrow-up"></use></svg>
+                </a>
+                <a href="#top" class="footer__top-link">
+                    <h2>Back To Top</h2>
+                </a> 
             </div>
             
         </footer>

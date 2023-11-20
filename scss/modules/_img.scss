@@ -2,6 +2,13 @@
 // Image Section
 // ==========================================================================
 
-.project__block img {
-    width: 100%;
+.project__block {
+
+    & img {
+        width: 100%;
+        height: 100%;
+        max-height: toRem(565);
+
+       
+    }
 }
