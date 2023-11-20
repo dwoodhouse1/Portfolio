@@ -41,7 +41,7 @@
 
 // Project Block Format
 @mixin projectblock-format() {
-    top:0;
+    
     border: 1px solid blue;
     border-radius: 0 0 2% 2%;
     flex-direction: column;
@@ -50,11 +50,6 @@
     position: relative;
     transition: .5s ease;
 
-    &:hover {
-        top:-10px;
-        transition: .5s ease;
-    }
-    
 }
 
 // Button Format

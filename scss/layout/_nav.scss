@@ -1,0 +1,29 @@
+// ==========================================================================
+// Navigation Section
+// ==========================================================================
+
+.primary-nav {
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    background-color: $white;
+    border-right: 5px solid blue;
+    width: 16%;
+
+    flex-direction: column;
+    &__pages {
+        list-style: none;
+    }
+}
+
+.ishidden {
+    display: none;
+
+    @include viewport(large) {
+        display: block;
+    }
+
+    @include viewport(x-large) {
+        display: block;
+    }
+}

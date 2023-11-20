@@ -5,6 +5,18 @@
 
 // Descriptive Base Colors
 
+$white: #fff;
+$black: #0b0b0b;
+$grey: #4a4c59;
+$blue: #4183d7;
+$green: #2ecc71;
+$purple: #926fb1;
+$red: #d64541;
+
+$facebook-color: #3b5998;
+$linkedin-color: #0077B5;
+$github-color: 6e5494;
+
 
 // Font Stacks
 
@@ -15,9 +27,9 @@ $base-font-size: 48px;
 
 // Viewport Breakpoints
 
-
 $brkpoint-sm: 320px;
-$brkpoint-smd: 480px;
+$brkpoint-smd: 650px;
 $brkpoint-md: 768px;
 $brkpoint-lg: 992px;
 $brkpoint-xlg: 1260px;
+

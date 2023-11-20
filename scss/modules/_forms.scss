@@ -18,13 +18,13 @@
 
 #contact-form {
     &__first-name {
-        width: auto;
+        
         @include viewport(small) {
 
         }
 
         @include viewport(medium) {
-            width: 95%;
+            
         }
         
     }
@@ -33,7 +33,7 @@
         
 
         @include viewport(medium) {
-            width: 95%;
+            
         }
     }
 
@@ -41,7 +41,7 @@
         
 
         @include viewport(medium) {
-            width: 95%;
+            
         }
     }
 
@@ -49,7 +49,7 @@
         
 
         @include viewport(medium) {
-            width: 95%;
+            
         }
     }
 
@@ -57,7 +57,7 @@
         
 
         @include viewport(medium) {
-            width: 95%;
+            
         }
     }
 }
@@ -76,6 +76,7 @@ input {
         font-size: 1.2rem;
         position: center;
         height: 40px;
+        
         background-color: lightgrey;
         color: #606060;
         border: 2px solid grey;

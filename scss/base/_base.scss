@@ -7,9 +7,13 @@
 }
 
 .margin-left {
-    margin-left: 10px;
+    margin-left: toRem(10);
 }
 
 .margin-right {
-    margin-right: 10px;
+    margin-right: toRem(10);
+}
+
+h1 {
+    font-size: 3rem;
 }

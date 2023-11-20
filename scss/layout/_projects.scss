@@ -4,8 +4,38 @@
 
 .project__grid {
     display: grid;
+
+    @include viewport(smedium) {
+        max-width: 480px;
+        margin: 0 auto;
+    }
+
+    @include viewport(medium) {
+        max-width: 700px;
+        margin: 0 auto;
+    }
 }
 
 .project__block {
-    @include projectblock-format();
+
+    &--content {
+        @include projectblock-format();
+    }
+
+    &--view {
+        margin-left: toRem(30);
+    }
+
+    &--hover {
+        top:0;
+        position: relative;
+        transition: .5s ease;
+
+        &:hover {
+            top:-10px;
+            transition: .5s ease;
+            cursor: pointer;
+        }
+    }
+    
 }

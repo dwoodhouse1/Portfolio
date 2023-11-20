@@ -5,8 +5,17 @@
 .flex-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    height: 100vh;
     margin: auto;
+    
+
+    @include viewport(large) {
+        margin-left: 10rem;
+    }
+
+    @include viewport(x-large) {
+        margin-left: 10rem;
+    }
 }
 
 .container {
