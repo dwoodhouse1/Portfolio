@@ -6,10 +6,11 @@ input {
     font-family: $font-family--primary;
 
     &[type=text] {
+        box-sizing: border-box;
         padding: 12px 20px;
         font-size: 1.2rem;
         position: center;
-        height: toRem(40);
+        
         width: 100%;
         background-color: lightgrey;
         color: #606060;
@@ -36,10 +37,110 @@ input {
         width: 100%;
         gap: 10px;
         // grid-template-rows: auto auto auto auto auto auto;
-        // grid-template-columns: auto auto auto;
+        grid-template-columns: auto auto;
     }
 
     &__first-name {
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        @include viewport(medium) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+
+        @include viewport(large) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+
+        @include viewport(x-large) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+    }
+
+    &__last-name {
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        @include viewport(medium) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+
+        @include viewport(large) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+
+        @include viewport(x-large) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+        
+    }
+
+    &__email {
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        @include viewport(medium) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+
+        @include viewport(large) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+
+        @include viewport(x-large) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+        
+    }
+
+    &__subject {
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        @include viewport(medium) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+
+        @include viewport(large) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+
+        @include viewport(x-large) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+
+    }
+
+    &__message {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        
+        @include viewport(medium) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }   
+
+        @include viewport(large) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        @include viewport(x-large) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
         
     }
 }

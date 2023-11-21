@@ -27,10 +27,6 @@
         align-self: center;
         margin: toRem(50) auto;
         
-        @include viewport(x-large) {
-            width: 50%;
-        }
-
         &--projects {
             @include viewport(large) {
                 width: 90%;

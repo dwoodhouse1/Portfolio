@@ -4,7 +4,7 @@
 
 .project__grid {
     display: grid;
-    gap: toRem(10);
+    gap: toRem(20);
     
     
     @include viewport(smedium) {
@@ -38,13 +38,10 @@
         &--height {
             @include viewport(medium) {
                 height: 453px;
+                min-height: 495px;
             }
             
         }
-    }
-
-    &--view {
-        margin-left: toRem(30);
     }
 
     &--hover {
