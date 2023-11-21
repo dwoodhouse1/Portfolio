@@ -6,6 +6,13 @@
     text-align: center;
 }
 
+.text-center-xlarge-margin {
+    @include viewport(x-large) {
+        margin-left: 10%;
+        margin-right: 25%;
+    }
+}
+
 .margin-left {
     margin-left: toRem(10);
 }
@@ -55,4 +62,8 @@ h2 {
 
 footer {
     margin-top: toRem(15);
+}
+
+p {
+    text-align: justify;
 }

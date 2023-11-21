@@ -20,5 +20,16 @@
 
 .container {
     width: 95%;
-    margin: auto;
+    margin: toRem(20);
+
+    &__center {
+        width: 75%;
+        align-self: center;
+        margin: toRem(50) auto;
+        
+        @include viewport(x-large) {
+            width: 50%;
+        }
+      
+    }
 }

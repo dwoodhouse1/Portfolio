@@ -11,11 +11,32 @@
     border-right: 8px solid $blue;
     width: 15rem;
 
-    &__pages {
+    @include viewport(small) {
+        display: none;
+    }
+
+    @include viewport(medium) {
+        display: none;
+    }
+
+    &__socials {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        margin-top: 0;
+        padding: 0;
         list-style: none;
-        height: 20%;
+
+        & li {
+            margin-left: toRem(20);
+            margin-right: toRem(20);
+            margin-bottom: 0;
+        }
+    }
+
+    &__pages {
+        display: block;
+        list-style: none;
+        margin-bottom: 0;
     }
 
     &__logo {
@@ -32,15 +53,14 @@
     }
 
     & ul {
-        padding-left: 0;
-        padding-top: 0;
+        padding: 0;
         text-align: center;
         font-size: toRem(30);
         font-weight: bold;
         
     }
     & li {
-        margin-bottom: toRem(40);
+        margin-bottom: toRem(25);
         
         &:hover {
             text-decoration: underline;
@@ -72,14 +92,3 @@
 }
 
 
-.ishidden {
-    display: none;
-
-    @include viewport(large) {
-        display: flex;
-    }
-
-    @include viewport(x-large) {
-        display: flex;
-    }
-}
