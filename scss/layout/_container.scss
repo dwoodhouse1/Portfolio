@@ -30,6 +30,16 @@
         @include viewport(x-large) {
             width: 50%;
         }
+
+        &--projects {
+            @include viewport(large) {
+                width: 90%;
+            }
+
+            @include viewport(x-large) {
+                width: 90%;
+            }
+        }
       
     }
 }
