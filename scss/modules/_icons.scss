@@ -14,12 +14,29 @@
 .icon-arrow-up {
     fill: $black;
     font-size: 32px;
+    
+}
+
+.icon-facebook {
+    fill: $black;
+
+    &:hover {
+        fill: $facebook-color;
+    }
 }
 
 .icon-linkedin {
     fill: $black;
+
+    &:hover {
+        fill: $linkedin-color;
+    }
 }
 
 .icon-github {
-    fill: $black;
+    
+
+    &:hover {
+        fill: $github-color;
+    }
 }
