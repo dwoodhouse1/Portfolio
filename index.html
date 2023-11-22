@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href="icons/favicon.PNG">
 </head>
 <body>
-
+    <!--Icon Implementation-->
     <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
             <symbol id="icon-arrow-up" viewBox="0 0 32 32">
@@ -33,6 +33,7 @@
         </defs>
     </svg>
 
+    <!-- Hamburger-->
     <div class="primary-nav__hamburger ishidden__hamburger">
         <button type="button" class="primary-nav__hamburger hamburger hamburger-spin is-active">
             <span class="hamburger-box">
@@ -41,8 +42,7 @@
         </button>
     </div>
         
-      
-
+    <!-- Navigation Section-->
     <aside>
         <nav class="ishidden__nav primary-nav">
             <a href="index.html" class="primary-nav__logo">
@@ -52,7 +52,7 @@
                 <ul class="primary-nav__pages">
                     <li><a href="aboutme.html">About</a></li>
                     <li><a href="#banner">Portfolio</a></li>
-                    <li><a href="codingexamples.html">Code Snippets</a></li>
+                    <li><a href="codingexamples.html">Coding Examples</a></li>
                     <li><a href="scsscheme.html">SCS Scheme</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -70,9 +70,10 @@
             </div>
         </nav>
     </aside>
-    
+
     <div class="flex-container">
         <header>
+            <!--Banner Section-->
             <div id="banner">
                 <hgroup class="banner__heading">
                     <h1>Drew Woodhouse</h1>
@@ -82,6 +83,8 @@
         </header>
         
         <main>
+
+            <!--Project Section-->
             <div class="container__center container__center--projects">
                 <section id="projects">
                     <h1 class="text-center">Projects</h1>
@@ -92,7 +95,6 @@
                             <div class="project__block--content project__block--content-height">
                                 <img src="img/netmatters-home.PNG" alt="Netmatters Homepage" class="project__block--image">
                                 <div class="project__block-text margin-left margin-bottom">
-                                    <hr>
                                     <h2 class="text-center">Netmatters Homepage</h1>
                                     <p>The entire Netmatters Homepage recreated using HTML & CSS/SASS.<p>
                                 </div>
@@ -169,6 +171,8 @@
                     </div>
                 </section>
             </div>
+
+            <!--Form Section-->
             <div class="container__center">
                 <section id="contact">
                     <div class="contact-me">
@@ -182,15 +186,15 @@
                         <form id="contact-form" action="index.php" method="post">
                             <div class="contact-form__content">
                                 <div class="contact-form__first-name">
-                                    <input type="text" id="contact-form__first-name" name="first-name" placeholder="First Name *">
+                                    <input type="text" id="contact-form__first-name" name="first-name" placeholder="First Name *" required="required">
                                 </div>
 
                                 <div class="contact-form__last-name textbox-format">
-                                    <input type="text" id="contact-form__last-name" name="last-name" placeholder="Last Name *">
+                                    <input type="text" id="contact-form__last-name" name="last-name" placeholder="Last Name *" required="required">
                                 </div>
 
                                 <div class="contact-form__email">
-                                    <input type="text" id="contact-form__email" name="email" placeholder="Email Address *">
+                                    <input type="text" id="contact-form__email" name="email" placeholder="Email Address *" required="required">
                                 </div>
 
                                 <div class="contact-form__subject">
@@ -211,6 +215,7 @@
         </main>
 
         <footer>
+            <!--Back To Top Link-->
             <div class="footer__container">
                 
                 <a href="#top" class="footer__top-link">

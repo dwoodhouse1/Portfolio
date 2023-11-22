@@ -27,9 +27,9 @@ input {
     &::placeholder {
         color: #606060;
     }
-
-    
 }
+
+
 
 .contact-form {
     &__content {
@@ -151,22 +151,18 @@ input {
             color: $red;
         }
 
-        @include viewport(small) {
-
-        }
-
-        @include viewport(medium) {
-            
+        &:focus::placeholder {
+            color: transparent;
         }
     }
 
     &__last-name {
-        
         &::placeholder {
             color: $red;
         }
-        @include viewport(medium) {
-            
+
+        &:focus::placeholder {
+            color: transparent;
         }
     }
 
@@ -175,25 +171,17 @@ input {
             color: $red;
         }
 
-        @include viewport(medium) {
-            
+        &:focus::placeholder {
+            color: transparent;
         }
     }
 
-    &__subject {
-        
-
-        @include viewport(medium) {
-            
-        }
+    &__subject:focus::placeholder {
+        color: transparent;
     }
 
-    &__message {
-        
-
-        @include viewport(medium) {
-            
-        }
+    &__message:focus::placeholder {
+        color: transparent;
     }
 }
 
@@ -201,3 +189,5 @@ textarea {
     @extend input;
     resize: vertical;
 }
+
+
