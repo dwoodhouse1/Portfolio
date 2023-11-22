@@ -6,16 +6,7 @@ input {
     font-family: $font-family--primary;
 
     &[type=text] {
-        box-sizing: border-box;
-        padding: 12px 20px;
-        font-size: 1.2rem;
-        position: center;
-        
-        width: 100%;
-        background-color: lightgrey;
-        color: #606060;
-        border: 2px solid $grey;
-        border-radius: 2px;
+        @include textfield-format();
 
 
         &:focus {
@@ -176,13 +167,19 @@ input {
         }
     }
 
+    &__message {
+        @include textfield-format();
+
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
+
     &__subject:focus::placeholder {
         color: transparent;
     }
 
-    &__message:focus::placeholder {
-        color: transparent;
-    }
+    
 }
 
 textarea {

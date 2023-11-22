@@ -21,7 +21,7 @@
     border: 5px solid black;
     
     @include viewport(small) {
-        width: 40%;
+        width: 45%;
     }
 
     @include viewport(medium) {
