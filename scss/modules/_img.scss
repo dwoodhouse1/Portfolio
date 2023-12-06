@@ -9,7 +9,19 @@
         height: 100%;
         max-height: toRem(565);
 
-       
+        @include viewport(medium) {
+            height: 190px;
+        }
+
+        @include viewport(large) {
+            height: 180px;
+        }
+
+        @include viewport(x-large) {
+            min-height: 275px;
+            max-height: 275px;
+        }
+ 
     }
 }
 
@@ -19,6 +31,7 @@
     border-radius: 10%;
     border-color: black;
     border: 5px solid black;
+    max-height: 420px;
     
     @include viewport(small) {
         width: 45%;
@@ -38,5 +51,12 @@
     
     @include viewport(x-large) {
         width: 20%;
+    }
+}
+
+.img-container {
+
+    &--snippet {
+        width: 100%;
     }
 }

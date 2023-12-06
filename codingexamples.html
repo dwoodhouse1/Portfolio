@@ -80,8 +80,74 @@
 
         <!--Coming Soon Section-->
         <div class="container__center">
-            <h1 class="text-center">Coming Soon!</h1>
-            <p>Coming Soon!</p>
+            <h1 class="text-center">HTML & CSS / SASS</h1>
+            <h3>Below you can find a code snippet used in my first project, recreating the Netmatters Homepage:</h3>
+
+            <div class="container__code">
+                <code>
+                    <pre>
+                        @mixin viewport($break) {
+                            
+                            @if $break == "small" { // small generally used for mobile phones 
+                                @media (min-width: $brkpoint-sm) and (max-width: #{$brkpoint-md - 1}) { // between 320px and 767px
+                                    @content;
+                                }
+                            }
+                            @else if $break == "smedium" {
+                                @media (min-width: $brkpoint-smd) and (max-width: #{brkpoint-md - 1}) { // between 650px and 767px
+                                    @content;
+                                }
+                            }
+                            @else if $break == "medium" {
+                                @media (min-width: $brkpoint-md) and (max-width: #{$brkpoint-lg - 1}) { // between 768px and 991px
+                                    @content;
+                                }
+                            }
+                            @else if $break == "large" { // large generally used for desktop monitors
+                                @media (min-width: $brkpoint-lg) and (max-width: #{$brkpoint-xlg - 1}) { // between 992px and 1259px
+                                    @content;
+                                }
+                            }
+                            @else if $break == "x-large" { // extra large
+                                @media (min-width: $brkpoint-xlg) { // greater than 1260px
+                                    @content;
+                                }
+                            }
+                            @else {
+                                @error "No value could be retrieved for break for `#{$break}`";
+                            }
+                        }
+                    </pre>
+                </code>
+
+            </div>
+
+            
+
+            
+
+            <p> This SASS code is used all over the webpage. It allows the use of styling certain elements at certain screen sizes. With this mixin, you call it within the CSS somewhere
+                using the example code snippet below:
+            </p>
+
+            <div class="container__code">
+                <code>
+                    <pre>
+                        @include viewport(large) {
+                            width: 30%;
+                        }
+                    </pre>
+                </code>
+
+            </div>
+
+            <p>In this example, I'm calling the mixin parsing an argument of 'large', what this means is the styles within this @include will be applied to the webpage when the screen
+                width is between between 992px and 1259px.
+            </p>
+
+            <p>It doesn't just need to be 'large' that is parsed into the mixin, you have a choice of 'small' 'smedium', 'medium' 'large' and 'x-large'. If you enter a string that isn't one of
+                these options, the @error will run displaying an error, which can be seen in the first code snippet.
+            </p>
         </div>
 
         <footer>

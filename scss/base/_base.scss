@@ -101,3 +101,10 @@ p {
 .inline {
     display: inline;
 }
+
+code {
+    display:inline-block;
+    color: white;
+    margin-left: -160px;
+    margin-right: 20px;
+}

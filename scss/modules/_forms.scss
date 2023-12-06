@@ -170,9 +170,14 @@ input {
     &__message {
         @include textfield-format();
 
-        &:focus::placeholder {
+       &:focus {
+        background-color: $white;
+
+        &::placeholder {
             color: transparent;
         }
+       }
+       
     }
 
     &__subject:focus::placeholder {

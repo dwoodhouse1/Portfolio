@@ -19,17 +19,31 @@
 }
 
 .container {
-    width: 95%;
-    margin: toRem(20);
+    
+    &__code {
+        background-color: $vscode-grey;
+        overflow-x: auto;
+    }
 
     &__center {
         width: 75%;
         align-self: center;
         margin: toRem(50) auto;
+
+        @include viewport(small) {
+            max-width: 400px;
+        }
+        @include viewport(medium) {
+            width: 700px;
+        }
+
+        @include viewport(large) {
+            
+        }
         
         &--projects {
             @include viewport(large) {
-                width: 90%;
+                width: 660px;
             }
 
             @include viewport(x-large) {
