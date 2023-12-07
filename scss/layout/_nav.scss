@@ -9,14 +9,20 @@
     height: 100vh;
     background-color: $white;
     border-right: 8px solid $blue;
-    width: 15rem;
+    width: 0;//15rem;
+    transition: 0.5s;
+    z-index: 5;
 
-    @include viewport(small) {
-        display: none;
+    @include viewport(large) {
+        display: block;
+        visibility: visible;
+        width: 15rem;
     }
 
-    @include viewport(medium) {
-        display: none;
+    @include viewport(x-large) {
+        display: block;
+        visibility: visible;
+        width: 15rem;
     }
 
     &__socials {
@@ -25,6 +31,16 @@
         margin-top: 0;
         padding: 0;
         list-style: none;
+
+        @include viewport(small) {
+            display: none;
+            
+        }
+    
+        @include viewport(medium) {
+            display: none;
+            
+        }
 
         & li {
             margin-left: toRem(20);
