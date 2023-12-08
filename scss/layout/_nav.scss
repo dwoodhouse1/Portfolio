@@ -105,6 +105,14 @@
     width: toRem(50);
     height: toRem(50);
 
+    @include viewport(large) {
+        display: none;
+    }
+
+    @include viewport(x-large) {
+        display: none;
+    }
+
 }
 
 

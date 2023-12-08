@@ -28,12 +28,24 @@ input {
         width: 100%;
         gap: 10px;
         // grid-template-rows: auto auto auto auto auto auto;
-        grid-template-columns: auto auto;
+        grid-template-columns: 50% 50%;
     }
 
     &__first-name {
         grid-column-start: 1;
         grid-column-end: 3;
+
+        & input:focus {
+            outline: none;
+        }
+
+        &.error input {
+            border: 2px solid red;
+        }
+
+        &.success input {
+            border: 2px solid green;
+        }
 
         @include viewport(medium) {
             grid-column-start: 1;
@@ -49,11 +61,25 @@ input {
             grid-column-start: 1;
             grid-column-end: 2;
         }
+
+        
     }
 
     &__last-name {
         grid-column-start: 1;
         grid-column-end: 3;
+
+        & input:focus {
+            outline: none;
+        }
+
+        &.error input {
+            border: 2px solid red;
+        }
+
+        &.success input {
+            border: 2px solid green;
+        }
 
         @include viewport(medium) {
             grid-column-start: 2;
@@ -76,6 +102,18 @@ input {
         grid-column-start: 1;
         grid-column-end: 3;
 
+        & input:focus {
+            outline: none;
+        }
+
+        &.error input {
+            border: 2px solid red;
+        }
+
+        &.success input {
+            border: 2px solid green;
+        }
+
         @include viewport(medium) {
             grid-column-start: 1;
             grid-column-end: 2;
@@ -93,9 +131,21 @@ input {
         
     }
 
-    &__subject {
+    &__phone {
         grid-column-start: 1;
         grid-column-end: 3;
+
+        & input:focus {
+            outline: none;
+        }
+
+        &.error input {
+            border: 2px solid red;
+        }
+
+        &.success input {
+            border: 2px solid green;
+        }
 
         @include viewport(medium) {
             grid-column-start: 2;
@@ -117,6 +167,10 @@ input {
     &__message {
         grid-column-start: 1;
         grid-column-end: 3;
+
+        & input:focus {
+            outline: none;
+        }
         
         @include viewport(medium) {
             grid-column-start: 1;
@@ -180,7 +234,7 @@ input {
        
     }
 
-    &__subject:focus::placeholder {
+    &__phone:focus::placeholder {
         color: transparent;
     }
 
@@ -193,3 +247,9 @@ textarea {
 }
 
 
+
+.contact-form__first-name {
+    
+
+    
+}
