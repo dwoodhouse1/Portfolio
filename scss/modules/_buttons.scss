@@ -100,7 +100,7 @@
   background: none;
   border: none;
   outline: none;
-  transform: rotate(0deg);
+  transform: rotate(90deg);
   transition: .5s;
   font-size: 2rem;
 }
@@ -108,7 +108,7 @@
 .rotate {
  
  
-    transform: rotate(90deg);
+    transform: rotate(0deg);
     transition: .5s;
   
 }

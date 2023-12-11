@@ -1,20 +1,28 @@
 //Banner text
 //const timeline = gsap.timeline({repeat: -1});
-const headerText = "Drew Woodhouse";
-const headerElement = document.getElementById("banner__fullname")
-const occupationText = document.getElementById("banner_occupation");
-
-typingEffect();
-
-function typingEffect()
+const headerElement = document.querySelector("#banner__h1");
+const subHeaderElement = document.querySelector("#banner__h2")
+console.log(headerElement);
+function typingEffect(element, speed)
 {
-    let speed = 5000;
-    for (let i = 0; i < headerText.length; i++)
-    {
-        headerElement.innerHTML += headerText.charAt(i);
-        console.log(headerText.charAt(i));
-        console.log(headerText.length);
-    }
-    setTimeout(typingEffect, speed);
+    const text = element.innerText.split("");
+
+    element.innerText = "";
+
+    text.forEach((character, index) => {
+        setTimeout(() => { // loop is repeating whatever the speed variable is set to.
+            element.innerHTML += character; // adds each character from the element one at a time to the inner HTML.
+        }, index * speed);
+        
+    });
 }
+
+typingEffect(headerElement, 200);
+
+if (subHeaderElement !== null) // some pages don't have the h2 on banner, so this checks if it does on each page (otherwise it will throw null errors)
+{
+    typingEffect(subHeaderElement, 200);
+}
+
+
 
