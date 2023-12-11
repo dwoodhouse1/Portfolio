@@ -41,7 +41,7 @@ const showSuccess = (input) => {
     //get the form-field element
     const formField = input.parentElement;
 
-    //remove the error class
+    //remove the success class
     formField.classList.remove("error");
     formField.classList.add("success");
 
@@ -114,21 +114,18 @@ const checkPhoneNumber = () => {
     const phoneNumber = phoneEl.value.trim();
     console.log(phoneNumber);
 
-    if (!isPhoneValid(phoneNumber))
-    {
-        showError(phoneEl, "Please enter a valid phone number (or none)");
-    }
-    else if (phoneNumber == "hehe")
+    if(phoneNumber == "")
     {
         showSuccess(phoneEl);
-        valid = true;
-        alert("nothin in phone number");
+    }
+    else if (!isPhoneValid(phoneNumber))
+    {
+        showError(phoneEl, "Please enter a valid phone number (or none)");
     }
     else
     {
         showSuccess(phoneEl);
         valid = true;
-        alert("hehe");
     }
 
     return valid;
@@ -178,8 +175,6 @@ form.addEventListener("input", function (e){
             checkPhoneNumber();
             break;
     }
-
-
 })
 
 
