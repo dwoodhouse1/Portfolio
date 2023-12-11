@@ -1,17 +1,20 @@
 //Banner text
-const timeline = gsap.timeline({repeat: -1});
-const chars = document.querySelectorAll(".banner__text");
+//const timeline = gsap.timeline({repeat: -1});
+const headerText = "Drew Woodhouse";
+const headerElement = document.getElementById("banner__fullname")
+const occupationText = document.getElementById("banner_occupation");
 
+typingEffect();
 
+function typingEffect()
+{
+    let speed = 5000;
+    for (let i = 0; i < headerText.length; i++)
+    {
+        headerElement.innerHTML += headerText.charAt(i);
+        console.log(headerText.charAt(i));
+        console.log(headerText.length);
+    }
+    setTimeout(typingEffect, speed);
+}
 
-timeline.from(chars, {opacity: 1, scale: 0, ease: "sine", delay: 0.25})
-    .to(".banner__text", {
-        "--font-weight": 600,
-        duration: .9,
-        ease: "sine.inOut",
-        stagger: {
-            yoyo: true,
-            each: 0.5,
-            repeat: -1
-        }
-    }, 1);
