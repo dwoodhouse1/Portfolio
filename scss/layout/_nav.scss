@@ -13,6 +13,10 @@
     transition: 0.5s;
     z-index: 5;
 
+    @include landscape-format() {
+        overflow-x: auto;
+    }
+
     @include viewport(large) {
         display: block;
         visibility: visible;

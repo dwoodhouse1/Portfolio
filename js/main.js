@@ -2,7 +2,8 @@
 //const timeline = gsap.timeline({repeat: -1});
 const headerElement = document.querySelector("#banner__h1");
 const subHeaderElement = document.querySelector("#banner__h2")
-console.log(headerElement);
+
+console.log(headerElement.classList);
 function typingEffect(element, speed)
 {
     const text = element.innerText.split("");

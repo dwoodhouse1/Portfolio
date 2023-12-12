@@ -95,3 +95,12 @@
     border: 2px solid $grey;
     border-radius: 2px;
 }
+
+// Media Queries
+
+@mixin landscape-format() {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+

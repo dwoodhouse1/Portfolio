@@ -10,6 +10,11 @@ const form = document.querySelector("#contact-form");
 
 const isRequired = value => value === "" ? false : true; // function returns false if value string is empty, otherwise returns true (if statement shorthand)
 
+const isNameValid = (name) => {
+    const regex = /^[A-Za-z\s-]+$/;
+    return regex.test(name);
+}
+
 const isEmailValid = (email) => {
     const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regex.test(email);
@@ -55,7 +60,7 @@ const checkFirstName = () => {
 
     const firstName = firstNameEl.value;
 
-    if (!isRequired(firstName))
+    if (!isRequired(firstName) || !isNameValid(firstName))
     {
         showError(firstNameEl, "Please enter your first name.")
     }
@@ -73,7 +78,7 @@ const checkLastName = () => {
 
     const lastName = lastNameEl.value;
 
-    if (!isRequired(lastName))
+    if (!isRequired(lastName) || !isNameValid(lastName))
     {
         showError(lastNameEl, "Please enter your last name.")
     }

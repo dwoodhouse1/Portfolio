@@ -8,7 +8,7 @@ for (let i = 0; i < triangle.length; i++)
     sectionContent[i].style.display = "block";
 
     triangle[i].addEventListener("click", function () {
-        
+        console.log(this.classList);
         this.classList.toggle("rotate");
         
         if (sectionContent[i].style.display === "block")
