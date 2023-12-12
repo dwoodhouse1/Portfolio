@@ -82,7 +82,6 @@
             </div>
         </header>
 
-        <!--Coming Soon Section-->
         <div class="container__center ishidden__section">
             <div class="section-title">
                 <h1 class="text-center">HTML & CSS / SASS</h1>
@@ -155,6 +154,131 @@
 
             <p>It doesn't just need to be 'large' that is parsed into the mixin, you have a choice of 'small' 'smedium', 'medium' 'large' and 'x-large'. If you enter a string that isn't one of
                 these options, the @error will run displaying an error, which can be seen in the first code snippet.
+            </p>
+            <br>
+            <hr>
+            </div>
+            
+        </div>
+
+        <div class="container__center ishidden__section">
+            <div class="section-title">
+                <h1 class="text-center">JavaScript</h1>
+                <button class="toggle-section "><svg class="icon icon-circle-right"><use xlink:href="#icon-circle-right"></use></svg></button> 
+                
+            </div>
+            <div class="section-content">
+                <h3>Below you can find a code snippet used on this very portfolio:</h3>
+                <div class="container__code">
+                <code>
+                    <pre>
+                        // Section Toggle
+                        const triangle = document.getElementsByClassName("toggle-section");
+                        const rotate = document.getElementsByClassName("rotate");
+                        const sectionContent = document.getElementsByClassName("section-content");
+
+                        for (let i = 0; i < triangle.length; i++)
+                        {
+                            sectionContent[i].style.display = "block";
+                            
+                            triangle[i].addEventListener("click", function () {
+                                
+                                this.classList.toggle("rotate");
+
+                                if (sectionContent[i].style.display === "block")
+                                {
+                                    sectionContent[i].style.display = "none";
+                                }
+                                else
+                                {
+                                    sectionContent[i].style.display = "block";
+                                }
+
+                            });
+                        }
+                    </pre>
+                </code>
+
+            </div>
+
+            <p> This JavaScript code is used for the toggle buttons you can find scattered across this website. It is used to allow users to expand or collapse sections of content
+                once they click on the button (it will alternate between expanding or collapsing the corrosponding content with each button click).
+            </p>
+
+            <p> This is useful for users when they are reading a long wordy webpage and may lose track of where they are. Once they have finished reading a section of content,
+                they can simply hide that section so they don't have to interact with it again unless they choose to do so. 
+            </p>
+
+            <h3>Below you can find an in-depth explination of each section of code listed in the code snippet above:</h3>
+
+            <div class="container__code">
+                <code>
+                    <pre>
+                        const triangle = document.getElementsByClassName("toggle-section");
+                        const rotate = document.getElementsByClassName("rotate");
+                        const sectionContent = document.getElementsByClassName("section-content");
+                    </pre>
+                </code>
+            </div>
+
+            <p>To start with, we must locate the class names associated with the button and the section of content we want to display or hide and store
+                them in variables named "triangle", "rotate", and "sectionContent". The rotate class is no-where to be found
+                on the webpage itself, but is useful here as it provides the necessary CSS properties to rotate the button icon on button press.
+            </p>
+
+
+            <div class="container__code">
+                <code>
+                    <pre>
+                        for (let i = 0; i < triangle.length; i++)
+                        {
+                            sectionContent[i].style.display = "block";
+                            ...
+                    </pre>
+                </code>
+            </div>
+
+            <p>Next, we start a for loop to loop through all the buttons found within the triangle variable. Whilst looping through all these buttons, we set the
+                display value of the corrosponding sectionContent variable to "block". This means that on page load, all sections of content will be displayed.
+            </p>
+
+            <div class="container__code">
+                <code>
+                    <pre>
+                        triangle[i].addEventListener("click", function () {
+                                
+                            this.classList.toggle("rotate");
+                            ...
+                    </pre>
+                </code>
+            </div>
+
+            <p>Now, within the for loop we also add an event listener to every button contained within the triangle variable. In this case it means that whenever
+                the triangle variable is pressed on the webpage, something happens. To start with, we toggle the class named "rotate" on and off with every button press, which as mentioned earlier,
+                will add the CSS properties to the buttons, making them rotate once they are clicked on.
+            </p>
+
+            <div class="container__code">
+                <code>
+                    <pre>
+                            if (sectionContent[i].style.display === "block")
+                            {
+                                sectionContent[i].style.display = "none";
+                            }
+                            else
+                            {
+                                sectionContent[i].style.display = "block";
+                            }
+
+                        });
+                    }
+                    </pre>
+                </code>
+            </div>
+
+            <p>Finally, within the event listener we also add an if statement which checks to see if the section of content that corrosponds with the button pressed is showing or not.
+                If the content is showing, the next button press will hide the content. If the content is hidden, the next button press will show the content.
+                Now all thats left is to close up the event listener and the for loop, as all the code required is now implemented.
             </p>
             <br>
             <hr>
