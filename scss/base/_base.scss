@@ -44,15 +44,15 @@ h1 {
     font-size: 3rem;
 
     @include viewport(medium) {
-        font-size: 3rem;
+        font-size: 4rem;
     }
 
     @include viewport(large) {
-        font-size: 3rem;
+        font-size: 4rem;
     }
 
     @include viewport(x-large) {
-        font-size: 3rem;
+        font-size: 5rem;
     }
 }
 
@@ -80,6 +80,20 @@ h2 {
     margin-block-start: 1em;
     margin-block-end: 1em;
     font-size: 2rem;
+}
+
+#banner__h2 {
+    @include viewport(medium) {
+        font-size: 3rem;
+    }
+
+    @include viewport(large) {
+        font-size: 3rem;
+    }
+
+    @include viewport(x-large) {
+        font-size: 4rem;
+    }
 }
 
 .h3 {

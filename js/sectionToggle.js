@@ -3,7 +3,7 @@ const triangle = document.getElementsByClassName("toggle-section");
 const rotate = document.getElementsByClassName("rotate");
 const sectionContent = document.getElementsByClassName("section-content");
 
-for (let i = 0; i < triangle.length; i++)
+for (let i = 0; i <= triangle.length; i++)
 {
     sectionContent[i].style.display = "block";
 
