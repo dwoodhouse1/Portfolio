@@ -131,6 +131,8 @@ code {
     }
 }
 
-.break:after {
-    content: "&nbsp;";
+.break {
+    @include viewport(small) {
+        padding-bottom: 1.5rem;
+    }
 }
