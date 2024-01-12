@@ -13,6 +13,8 @@
     width: 100%;
 
     @include bg-gradiant();
+
+    
 }
 
 .banner__heading { 
@@ -22,6 +24,7 @@
 
 .banner__text {
     color: #111;
+    //font-variation-settings: "wght" var(--font-weight, 100);
     font-size: 2rem;
     margin-left: 1px;
     margin-right: 1px;

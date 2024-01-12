@@ -130,3 +130,7 @@ code {
         margin-top: 2rem;
     }
 }
+
+.break:after {
+    content: "&nbsp;";
+}

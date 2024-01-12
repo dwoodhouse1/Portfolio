@@ -285,6 +285,152 @@
             </div>
             
         </div>
+        <div class="container__center ishidden__section">
+            <div class="section-title">
+                <h2 class="h1 text-center">JavaScript Arrays</h2>
+                <button class="toggle-section "><svg class="icon icon-circle-right"><use xlink:href="#icon-circle-right"></use></svg></button> 
+                
+            </div>
+            <div class="section-content">
+                <h3>Below you can find a code snippet used in my JavaScript Arrays project:</h3>
+                <div class="container__code">
+                <code>
+                    <pre>
+                        function createUser(userEmail) {
+                            let user = {
+                                email: `${userEmail}`,
+                                images: [],
+                                
+                            };
+                            
+                            userArray.push(user);
+                        }
+                    </pre>
+                </code>
+
+            </div>
+
+            <p> This JavaScript code is used to create an object that will be stored in an array called 'userArray'. The object contains two properties: email (which contains the email address the user submitted)
+                and an image array which is initally empty, but will eventually contain the HTML required to view images the user has selected.
+                This function is called once the user has submitted a valid email address using the
+                email input text field and the corrosponding submit button.
+            </p>
+
+            <h3>Below you can find an example and detailed explination of where the array is used within the JavaScript code above:</h3>
+
+            <div class="container__code">
+                <code>
+                    <pre>
+                        function addImage(emailText) {
+   
+                            if (emailText.length === 0) 
+                            {
+                                alert("Error: No emails can be found"); 
+                            }
+                            else
+                            {
+                                for (let i = 0; i < userArray.length; i++)
+                                {
+                                    if(userArray[i].email === emailText)
+                                    {
+                                        userArray[i].images.push(`&lt;li&gt;&lt;img src=${currentImgURL} alt='${currentImgDesc}' width=200 height=200&gt;&lt;/li&gt;`)
+                                        
+                                        fetchImage();
+                                    }
+                                }
+                            }
+                            
+                        }
+                    </pre>
+                </code>
+
+            </div>
+
+            <p>The code above is used to add an image to the image array within the 'userArray' where the corrosponding email address has been selected (through the argument 'emailText').
+            </p>
+
+            <div class="container__code">
+                <code>
+                    <pre>
+
+                            if (emailText.length === 0) 
+                            {
+                                alert("Error: No emails can be found"); 
+                            }   
+                    </pre>
+                </code>
+
+            </div>
+
+            <p> The code above checks to see if the parsed in email address is empty, and if it is it throws an error telling the user that no emails can be found. This code should never be run
+                because the button associated with this function is disabled when no email address is selected. This is here as a double security measure.
+            </p>
+
+            <div class="container__code">
+                <code>
+                    <pre>
+
+                            else
+                            {
+                                for (let i = 0; i < userArray.length; i++)
+                                {
+                                   ...
+                                }
+                            } 
+                    </pre>
+                </code>
+
+            </div>
+
+            <p> If the previous code does not equal 0, then this code will run. It contains a 'for' loop, which executes the lines of code contained within multiple times until the condition provided
+                is false (in this example the for loop will stop when the counter variable 'i' is greater than the 'userArray' length). The for loop essentially grabs all the elements contained within
+                the 'userArray' array.
+            </p>
+            <div class="container__code">
+                <code>
+                    <pre>
+
+                          
+                            if(userArray[i].email === emailText)
+                            {
+                                userArray[i].images.push(`&lt;li&gt;&lt;img src=${currentImgURL} alt='${currentImgDesc}' width=200 height=200&gt;&lt;/li&gt;`)
+                                    
+                                fetchImage();
+                            }
+                                
+                            
+                    </pre>
+                </code>
+
+            </div>
+
+            
+
+            <p>Contained within the for loop is an if statement which checks to see if any of the email properties within the 'userArray' array is exactly the same as any of the emails currently displayed
+                in the dropdown menu. If they are, then some HTML code is added into the 'images[]' array of the selected email address in the dropdown. This HTML code will display the image from the
+                image fetcher in a list. Finally, the function 'fetchImage()' is called, which refreshes the image fetcher with a new image.
+            </p>
+            <div class="container__code">
+                <code>
+                    <pre>
+                        btnAddImage.addEventListener('click', function () { 
+                            addImage(currentEmailText.textContent);
+                            regenerateImages();
+                        });         
+                    </pre>
+                </code>
+
+            </div>
+
+            <p>The code above instructs the button labled 'Add Current Image' to execute two functions on click: 'addImage()' and 'regenerateImages()'. The 'addImage()' function parses the current text
+                contained within the HTML element that displays the current email address selected within the dropdown, whilst also executing all the code mentioned earlier. The 'regenerateImages()' function,
+                in short, will display all the currently saved images linked to an email address on the webpage (if there are any).
+            </p>
+            <br>
+            <hr>
+            </div>
+            
+        </div>
 
         <footer>
             <!--Back To Top Link-->
