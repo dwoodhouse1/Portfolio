@@ -431,6 +431,151 @@
             </div>
             
         </div>
+        <div class="container__center ishidden__section">
+            <div class="section-title">
+                <h2 class="h1 text-center">PHP</h2>
+                <button class="toggle-section "><svg class="icon icon-circle-right"><use xlink:href="#icon-circle-right"></use></svg></button> 
+                
+            </div>
+            <div class="section-content">
+                <h3>Below you can find a code snippet used in my Netmatters Contact Us page:</h3>
+                <div class="container__code">
+                <code>
+                    <pre>
+                        
+                        function postData($name, $email, $companyName, $telephone, $message, $marketing)
+                        {
+                            include("dbConnection.php");
+
+                            try {
+                                $sql = $conn->prepare('
+                                    INSERT INTO enquiries (name, email, company_name, telephone, message, marketing)
+                                    VALUES (:name, :email, :company_name, :telephone, :message, :marketing);
+                                ');
+
+                                $sql->bindValue(":name", $name, PDO::PARAM_STR);
+                                $sql->bindValue(":email", $email, PDO::PARAM_STR);
+                                $sql->bindValue(":company_name", $companyName, PDO::PARAM_STR);
+                                $sql->bindValue(":telephone", $telephone, PDO::PARAM_STR);
+                                $sql->bindValue(":message", $message, PDO::PARAM_STR);
+                                $sql->bindValue(":marketing", $marketing, PDO::PARAM_STR);
+
+
+                                $sql->execute();
+                                return true;
+                            }
+                            catch (PDOException $pe)
+                            {
+                                echo 'Unable to send data ' . $pe->getMessage();
+                                exit;
+                            }
+                        }
+                    </pre>
+                </code>
+
+            </div>
+
+            <p> This PHP code is used to send the data that a user enters on the enquiry section of the 'Contact Us' page. The function 'postData' is called in another file which will contain
+                all the text that a user has inputted within the required text fields.
+            </p>
+
+            <h3>Below you can find a detailed explination of how the PHP code above, split into sections:</h3>
+
+            <div class="container__code">
+                <code>
+                    <pre>
+                        function postData($name, $email, $companyName, $telephone, $message, $marketing)
+                        {
+                            include("dbConnection.php");
+                            ...
+                    </pre>
+                </code>
+
+            </div>
+
+            <p>The code above is simply calling another PHP file named 'dbConnection.php'. Within this file contains the necessary code to establish a link between the website and the database.
+                It is needed here to execute the code that comes after this.
+            </p>
+
+            <div class="container__code">
+                <code>
+                    <pre>
+                        try {
+                            $sql = $conn->prepare('
+                                INSERT INTO enquiries (name, email, company_name, telephone, message, marketing)
+                                VALUES (:name, :email, :company_name, :telephone, :message, :marketing);
+                            ');
+                            ...
+                    </pre>
+                </code>
+
+            </div>
+
+            <p> The code above is preparing what is called an SQL (Server Query Language) statement. In this case the statement is inserting the values
+                ':name' ':email' ':company_name' ':telephone' ':message' and ':marketing' into the corrosponding table columns within the database. You will notice
+                that this SQL statement is contained within a 'try' block, which attempts to execute the code within the block, and if it can't, the code created
+                in the 'catch' block (which you can see later on) will run.
+            </p>
+
+            <div class="container__code">
+                <code>
+                    <pre>
+
+                            $sql->bindValue(":name", $name, PDO::PARAM_STR);
+                            $sql->bindValue(":email", $email, PDO::PARAM_STR);
+                            $sql->bindValue(":company_name", $companyName, PDO::PARAM_STR);
+                            $sql->bindValue(":telephone", $telephone, PDO::PARAM_STR);
+                            $sql->bindValue(":message", $message, PDO::PARAM_STR);
+                            $sql->bindValue(":marketing", $marketing, PDO::PARAM_STR);
+                            ...
+                    </pre>
+                </code>
+
+            </div>
+
+            <p> The code above is placing the variables '$name', '$email', '$companyName', '$telephone', '$message' and '$marketing' into the values that you can see from the previous block of code.
+                These variables are passed into the function from earlier when it has been called elsewhere. All of the variables listed are also set as a PDO (PHP Data Objects) strings to the database.
+            </p>
+            <div class="container__code">
+                <code>
+                    <pre>    
+                            $sql->execute();
+                            return true;
+                        }
+                        ...    
+                    </pre>
+                </code>
+
+            </div>
+
+            
+
+            <p>Finally within the try block, the SQL statement is executed to the database and the value true is returned.
+            </p>
+            <div class="container__code">
+                <code>
+                    <pre>
+                        catch (PDOException $pe)
+                        {
+                            echo 'Unable to send data ' . $pe->getMessage();
+                            exit;
+                        }
+                    }     
+                    </pre>
+                </code>
+
+            </div>
+
+            <p>Lastly the catch block mentioned earlier can be found. This block of code will run if the connection established fails or if the SQL statement created earlier
+                has an error. Within the catch block, a message will run on the webpage telling the user that it was unable to sent the data and the reason why via the '$pe->getMessage()',
+                which is a pre-defined function from the class PDOException, seen on the catch line of code. Finally, the program will come to a halt on the exit line of code 
+                (so no code after this line being executed can be run).
+            </p>
+            <br>
+            <hr>
+            </div>
+            
+        </div>
 
         <footer>
             <!--Back To Top Link-->
