@@ -7,6 +7,9 @@ const phoneEl = document.querySelector("#contact-form__phone");
 const messageEl = document.querySelector("#contact-form__message");
 
 const form = document.querySelector("#contact-form");
+const btnClose = document.querySelector(".close");
+const errorValidation = document.querySelector(".error-validating");
+const successValidation = document.querySelector(".success-validating");
 
 const isRequired = value => value === "" ? false : true; // function returns false if value string is empty, otherwise returns true (if statement shorthand)
 
@@ -21,12 +24,10 @@ const isEmailValid = (email) => {
 }
 
 const isPhoneValid = (number) => {
-    //UK Regex: 
-    // Matches     07123456789  | +447123456789
     
-    let regexUK = /^((\+44)|(0)) ?\d{4} ?\d{6}$/;
+    const  regex = /^\+?\(?([0-9]{2,4})[)\s\d.-]+([0-9]{3,4})([\s.-]+([0-9]{3,4}))?$/
 
-    return regexUK.test(number);
+    return regex.test(number);
 }
 
 const showError = (input, message) => {
@@ -125,7 +126,7 @@ const checkPhoneNumber = () => {
     }
     else if (!isPhoneValid(phoneNumber))
     {
-        showError(phoneEl, "Please enter a valid phone number (or none)");
+        showError(phoneEl, "Please enter a valid phone number");
     }
     else
     {
@@ -139,24 +140,24 @@ const checkPhoneNumber = () => {
 
 
 
-form.addEventListener("submit", function (e){
-    e.preventDefault();
+// form.addEventListener("submit", function (e){
+//     e.preventDefault();
 
-    let isFirstNameValid = checkFirstName(),
-        isLastNameValid = checkLastName(),
-        isEmailValid = checkEmail(),
-        isPhoneValid = checkPhoneNumber();
+//     let isFirstNameValid = checkFirstName(),
+//         isLastNameValid = checkLastName(),
+//         isEmailValid = checkEmail(),
+//         isPhoneValid = checkPhoneNumber();
 
-    let isFormValid = isFirstNameValid
-                    && isLastNameValid
-                    && isEmailValid
-                    && isPhoneValid;
+//     let isFormValid = isFirstNameValid
+//                     && isLastNameValid
+//                     && isEmailValid
+//                     && isPhoneValid;
 
-    if (isFormValid)
-    {
-       //PHP code will go here. 
-    }
-})
+//     if (isFormValid)
+//     {
+//        //PHP code will go here. 
+//     }
+// })
 
 
 // Instant Feedback on inputs
@@ -182,6 +183,20 @@ form.addEventListener("input", function (e){
     }
 })
 
+btnClose.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    if (errorValidation != null)
+    {
+        e.target.closest('div.error-validating').remove();
+    }
+    
+    if (successValidation != null)
+    {
+        e.target.closest('div.success-validating').remove();
+    }
+    
+})
 
 
 

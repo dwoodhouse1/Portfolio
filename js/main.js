@@ -3,6 +3,9 @@
 const headerElement = document.querySelector("#banner__h1");
 const subHeaderElement = document.querySelector("#banner__h2")
 
+
+// Typing Effect
+
 console.log(headerElement.classList);
 function typingEffect(element, speed)
 {
@@ -24,6 +27,10 @@ if (subHeaderElement !== null) // some pages don't have the h2 on banner, so thi
 {
     typingEffect(subHeaderElement, 200);
 }
+
+
+
+
 
 
 

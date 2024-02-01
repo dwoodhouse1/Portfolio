@@ -234,10 +234,15 @@ input {
        
     }
 
-    &__phone:focus::placeholder {
-        color: transparent;
-    }
+    &__phone {
+        &::placeholder {
+            color: $red;
+        }
 
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
     
 }
 
@@ -246,10 +251,36 @@ textarea {
     resize: vertical;
 }
 
-
-
-.contact-form__first-name {
-    
-
-    
-}
+.error-validating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $pink-form-background;
+    color: $red-danger;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid $pink-form-border;
+    border-radius: 2px;
+  }
+  
+  .success-validating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $green-success-background;
+    color: $green-d;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid $green-success-border;
+    border-radius: 2px;
+  }
+  
+  .close {
+    position: relative;
+    font-size: 32px;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    margin: 0 15px;
+  }

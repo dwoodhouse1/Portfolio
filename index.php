@@ -1,3 +1,119 @@
+<?php 
+    session_start();
+    include("php/dbconnection.php");
+    include("php/postdata.php");
+
+    $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0'; // Not currently in use
+    
+    if (!isset($_SESSION['success']))
+    {
+        $_SESSION['success'] = false;
+    }
+    
+    if (!isset($_SESSION['errorMessage']))
+    {
+        $_SESSION['errorMessage'] = [];
+    }
+
+    if (!isset($_SESSION['form_sent']))
+    {
+        $_SESSION['form_sent'] = false;
+    }
+    
+    function sanatiseInput($input)
+    {
+        $input = htmlspecialchars($input);
+        $input = trim($input);
+        $input = stripslashes($input);
+        return $input;
+    }
+
+    function validateInput($postData, $input, $regex=true)
+    {
+        if (empty($postData) == true)
+        {
+            array_push($_SESSION['errorMessage'], "Please enter a value into " . $input . ".");
+            return false;
+        }
+        else if ($regex == false)
+        {
+            array_push($_SESSION['errorMessage'], "The " . $input . " format is incorrect.");
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+        
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        echo 'Tehee';
+        // Filering / Sanitising all inputs and storing the values into session variables
+
+        $firstName = sanatiseInput($_POST['first_name']);
+        $_SESSION['first_name'] = $firstName;
+
+        $lastName = sanatiseInput($_POST['last_name']);
+        $_SESSION['last_name'] = $lastName;
+
+        $email = sanatiseInput($_POST['email']);
+        $_SESSION['email'] = $email;
+
+        $telephone = sanatiseInput($_POST['telephone']);
+        $_SESSION['telephone'] = $telephone;
+
+        $message = sanatiseInput($_POST['message']);
+        $_SESSION['message'] = $message;
+        
+        
+
+ 
+        $nameRegex = "/^[a-zA-Z-' ]*$/";
+        $phoneRegex = "/^\+?\(?([0-9]{2,4})[)\s\d.-]+([0-9]{3,4})([\s.-]+([0-9]{3,4}))?$/";
+
+        //function validateInput($postData, $input, $regex=true)
+        $isFirstNameValid = validateInput($firstName, "First Name", preg_match($nameRegex, $firstName));
+        $isLastNameValid = validateInput($lastName, "Last Name", preg_match($nameRegex, $lastName));
+        $isEmailValid = validateInput($email, "Email", filter_var($email, FILTER_VALIDATE_EMAIL));
+        $isPhoneValid = validateInput($telephone, "Phone Number", preg_match($phoneRegex, $telephone));
+        //$isMessageValid = validateInput($message, "message");
+       
+        if ($isFirstNameValid && $isLastNameValid && $isEmailValid && $isPhoneValid) //   && $isMessageValid
+        {
+            postData($firstName, $lastName, $email, $telephone, $message);
+
+            unset($_SESSION['first_name']);
+            unset($_SESSION['last_name']);
+            unset($_SESSION['email']);
+            unset($_SESSION['telephone']);
+            unset($_SESSION['message']);
+
+            $_SESSION['success'] = true;
+            $_SESSION['errorMessage'] = [];
+            $error = $_SESSION['errorMessage'];
+
+            $_SESSION['form_sent'] = true;
+            $formSent = $_SESSION['form_sent'];
+    
+
+            echo 'Data submitted to the Database Successfully';
+            header("Location: #contact");
+        
+            exit();
+
+        }
+        else
+        {
+            $_SESSION['form_sent'] = false;
+            $formSent = $_SESSION['form_sent'];
+            header("Location: #contact");
+
+            exit();
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,76 +129,16 @@
 </head>
 <body>
     <!--Icon Implementation-->
-    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-            <symbol id="icon-arrow-up" viewBox="0 0 32 32">
-                <path d="M27.414 12.586l-10-10c-0.781-0.781-2.047-0.781-2.828 0l-10 10c-0.781 0.781-0.781 2.047 0 2.828s2.047 0.781 2.828 0l6.586-6.586v19.172c0 1.105 0.895 2 2 2s2-0.895 2-2v-19.172l6.586 6.586c0.39 0.39 0.902 0.586 1.414 0.586s1.024-0.195 1.414-0.586c0.781-0.781 0.781-2.047 0-2.828z"></path>
-            </symbol>
-            <symbol id="icon-arrow-right" viewBox="0 0 32 32">
-                <path d="M19.414 27.414l10-10c0.781-0.781 0.781-2.047 0-2.828l-10-10c-0.781-0.781-2.047-0.781-2.828 0s-0.781 2.047 0 2.828l6.586 6.586h-19.172c-1.105 0-2 0.895-2 2s0.895 2 2 2h19.172l-6.586 6.586c-0.39 0.39-0.586 0.902-0.586 1.414s0.195 1.024 0.586 1.414c0.781 0.781 2.047 0.781 2.828 0z"></path>
-            </symbol>
-            <symbol id="icon-facebook" viewBox="0 0 32 32">
-                <path d="M29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h13v-14h-4v-4h4v-2c0-3.306 2.694-6 6-6h4v4h-4c-1.1 0-2 0.9-2 2v2h6l-1 4h-5v14h9c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3z"></path>
-            </symbol>
-            <symbol id="icon-linkedin" viewBox="0 0 32 32">
-                <path d="M29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h26c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3zM12 26h-4v-14h4v14zM10 10c-1.106 0-2-0.894-2-2s0.894-2 2-2c1.106 0 2 0.894 2 2s-0.894 2-2 2zM26 26h-4v-8c0-1.106-0.894-2-2-2s-2 0.894-2 2v8h-4v-14h4v2.481c0.825-1.131 2.087-2.481 3.5-2.481 2.488 0 4.5 2.238 4.5 5v9z"></path>
-            </symbol>
-            <symbol id="icon-github" viewBox="0 0 32 32">
-                <path d="M16 0.395c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
-            </symbol>
-        </defs>
-    </svg>
+    <?php include("php/icons.php"); ?>
 
     <!-- Hamburger-->
-    <div class="primary-nav__hamburger ishidden__hamburger">
-        <button id="btn__hamburger" type="button" class="primary-nav__hamburger hamburger inactive">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-        </button>
-    </div>
+    <?php include("php/hamburger.php"); ?>
         
     <!-- Navigation Section-->
-    <aside>
-        <nav class="ishidden__nav primary-nav">
-            <a href="index.html" class="primary-nav__logo">
-                DW
-            </a>
-            <div class="primary-nav__flex-container">
-                <ul class="primary-nav__pages">
-                    <li><a href="aboutme.html">About</a></li>
-                    <li><a id="primary-nav__portfolio" href="#projects">Portfolio</a></li>
-                    <li><a href="codingexamples.html">Coding Examples</a></li>
-                    <li><a href="scsscheme.html">SCS Scheme</a></li>
-                    <li><a id ="primary-nav__contact" href="#contact">Contact</a></li>
-                </ul>
-                <ul class="primary-nav__socials">
-                    <li>
-                        <a href="https://www.facebook.com/drew.woodhouse/" target="_blank"><svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg></a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/drew-woodhouse-0a9378283/" target="_blank"><svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/dwoodhouse1" target="_blank"><svg class="icon icon-github"><use xlink:href="#icon-github"></use></svg></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </aside>
+    <?php include("php/menu.php"); ?>
 
     <div class="flex-container">
-        <header>
-            <!--Banner Section-->
-            <div id="banner">
-                <hgroup class="banner__heading">
-                    <div class="banner__text">
-                        <h1 id="banner__h1">Drew Woodhouse</h1>
-                        <p id="banner__h2" class="h2 text-center bold">Web Developer</p>
-                    </div>
-                </hgroup>
-            </div>
-        </header>
+        <?php include("php/header.php"); ?>
         
         <main>
             <!--Project Section-->
@@ -97,7 +153,7 @@
                                 <img src="img/netmatters-homepage.png" alt="Netmatters Homepage" class="project__block--image">
                                 <div class="project__block-text margin-left margin-bottom">
                                     <h2 class="h3 text-center">Netmatters Homepage</h2>
-                                    <p>The entire Netmatters Homepage recreated using HTML, CSS/SASS & JavaScript<br>&nbsp;</p>
+                                    <p>The entire Netmatters Homepage recreated using HTML, CSS/SASS, JavaScript & PHP<br>&nbsp;</p>
                                 </div>
                             </div>
                             <div class="project__block--view">
@@ -117,7 +173,7 @@
                                 <h3>View the Project <svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></h3>
                             </div>
                         </a>
-                    
+                        
                         <a href="#" target="_blank" class="project__block project__block--hover">
                             <div class="project__block--content project__block--content-height">
                                 <img src="img/coming-soon.PNG" alt="Coming Soon">
@@ -172,7 +228,7 @@
                     </div>
                 </section>
             </div>
-
+            
             <!--Form Section-->
             <div class="container__center">
                 <section id="contact">
@@ -184,30 +240,35 @@
                         </p>
                     </div>
                     <div class="contact-form">
-                        <form id="contact-form" name="contactForm" action="index.php" method="post">
+                        <form id="contact-form" action="index.php" method="POST">
+                            <div class="hidden-all <?php if ($_SESSION['form_sent'] == true) {echo 'success-validating';} else if (!empty($_SESSION['errorMessage'])){echo 'error-validating';}   else {echo '';}   ?>">
+                                <span class="padding-right"><?php if($_SESSION['form_sent'] == true) {echo "Your Enquiry has been Submitted";} else {echo implode("<br><br>",$_SESSION['errorMessage']);} ?></span>
+                                <button type="button" class="close"><?php if ($_SESSION['form_sent'] == true || (!empty($_SESSION['errorMessage']))) {echo '×';}    else {echo '';}   ?></button>
+                                <?php  $_SESSION['errorMessage'] = []; ?>
+                            </div>
                             <div class="contact-form__content">
                                 <div class="contact-form__first-name">
-                                    <input type="text" id="contact-form__first-name" name="first-name" placeholder="First Name *">
+                                    <input type="text" id="contact-form__first-name" name="first_name" placeholder="First Name *" value="<?php echo $_SESSION['first_name'] ?? ''; ?>">
                                     <small></small>
                                 </div>
 
                                 <div class="contact-form__last-name textbox-format">
-                                    <input type="text" id="contact-form__last-name" name="last-name" placeholder="Last Name *">
+                                    <input type="text" id="contact-form__last-name" name="last_name" placeholder="Last Name *" value="<?php echo $_SESSION['last_name'] ?? ''; ?>">
                                     <small></small>
                                 </div>
 
                                 <div class="contact-form__email">
-                                    <input type="text" id="contact-form__email" name="email" placeholder="Email Address *">
+                                    <input type="text" id="contact-form__email" name="email" placeholder="Email Address *" value="<?php echo $_SESSION['email'] ?? ''; ?>">
                                     <small></small>
                                 </div>
 
                                 <div class="contact-form__phone">
-                                    <input type="text" id="contact-form__phone" name="phone-number" placeholder="Phone Number (Optional)">
+                                    <input type="text" id="contact-form__phone" name="telephone" placeholder="Phone Number *" value="<?php echo $_SESSION['telephone'] ?? ''; ?>">
                                     <small></small>
                                 </div>
 
                                 <div class="contact-form__message">
-                                    <textarea id="contact-form__message" name="message" placeholder="Message (Optional)"></textarea>
+                                    <textarea id="contact-form__message" name="message" placeholder="Message (Optional)"><?php echo $_SESSION['message'] ?? ''; ?></textarea>
                                 </div>
                             </div>
                             <div class="contact-form__submit">
@@ -219,19 +280,8 @@
             </div>
         </main>
 
-        <footer>
-            <!--Back To Top Link-->
-            <div class="footer__container">
-                
-                <a href="#top" class="footer__top-link">
-                    <svg class="icon icon-arrow-up"><use xlink:href="#icon-arrow-up"></use></svg>
-                </a>
-                <a href="#top" class="footer__top-link">
-                    <h2>Back To Top</h2>
-                </a> 
-            </div>
-            
-        </footer>
+        <?php include ("php/footer.php"); ?>
+        
     </div>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/gsap-public/minified/gsap.min.js"></script>
