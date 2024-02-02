@@ -49,7 +49,6 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        echo 'Tehee';
         // Filering / Sanitising all inputs and storing the values into session variables
 
         $firstName = sanatiseInput($_POST['first_name']);
