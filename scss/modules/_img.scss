@@ -9,6 +9,10 @@
         height: 100%;
         max-height: toRem(565);
 
+        @include viewport(small) {
+            height: 190px;
+        }
+
         @include viewport(medium) {
             height: 190px;
         }

@@ -39,3 +39,23 @@
         fill: $github-color;
     }
 }
+
+.icon-html5 {
+    @include language-icon-format();
+}
+
+.icon-css3 {
+    @include language-icon-format();
+}
+
+.icon-sass {
+    @include language-icon-format();
+}
+
+.icon-javascript {
+    @include language-icon-format();
+}
+
+.icon-php {
+    @include language-icon-format();
+}

@@ -1,5 +1,8 @@
 <?php
     $getURI = $_SERVER['REQUEST_URI'];
+    $getPage = $_SERVER['PHP_SELF'];
+
+    $indexPage = "/portfolio/index.php";
 
     $indexPageURI = "/portfolio/index.php";
     $codingExamplePageURI =  "/portfolio/codingexamples.php";
@@ -36,12 +39,16 @@
                         case $scsSchemePageURI:
                             echo 'SCS Scheme';
                             break;
+                        
+                        default:
+                            echo 'Drew Woodhouse';
+                            break;
                     }
                 ?>
                 </h1>
                 <p id="banner__h2" class="h2 text-center bold">
                 <?php
-                    if ($getURI == $indexPageURI)
+                    if ($getPage == $indexPage)
                     {
                         echo 'Web Developer';
                     }

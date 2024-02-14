@@ -55,6 +55,7 @@
     line-height: 35px;
     padding: 5px 15px;
     text-align: center;
+    text-decoration: none;
 
     font-size: em($base-font-size);
     border-radius: 3px;
@@ -94,6 +95,20 @@
     color: #606060;
     border: 2px solid $grey;
     border-radius: 2px;
+}
+
+
+// Language Icon Format
+
+@mixin language-icon-format() {
+    width: 2em;
+    height: 2em;
+    margin-right: 1rem;
+    
+    @include viewport(small) {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
 }
 
 // Media Queries

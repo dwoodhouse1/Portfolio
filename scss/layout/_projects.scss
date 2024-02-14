@@ -6,11 +6,6 @@
     display: grid;
     gap: toRem(20);
     
-    & a {
-        color: $black;
-        text-decoration: none;
-        
-    }
     @include viewport(smedium) {
         max-width: toRem(600);
         margin: 0 auto;
@@ -44,8 +39,17 @@
     &--content {
         @include projectblock-format();
 
-        @include viewport(x-large) {
+        @include viewport(small) {
+            height: 515px; 
+        }
+        @include viewport(medium) {
             height: 500px;
+        }
+        @include viewport(large) {
+            height: 500px;
+        }
+        @include viewport(x-large) {
+            height: 600px;
         }
     }
 
@@ -57,7 +61,7 @@
         &:hover {
             top:-10px;
             transition: .5s ease;
-            cursor: pointer;
+            
         }
     }
 

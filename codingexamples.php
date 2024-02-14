@@ -6,6 +6,7 @@
     <title>Coding Examples - Drew Woodhouse | SCS Portfolio</title>
 
     <link rel="stylesheet" href="css/application.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;500;700&display=swap" rel="stylesheet">
@@ -29,66 +30,62 @@
         <div class="container__center ishidden__section">
             <div class="section-title">
                 <h2 class="h1 text-center">HTML & CSS / SASS</h2>
-                <button class="toggle-section "><svg class="icon icon-circle-right"><use xlink:href="#icon-circle-right"></use></svg></button> 
+                <button class="toggle-section "><svg class="icon icon-chevron-circle-right"><use xlink:href="#icon-chevron-circle-right"></use></svg></button> 
                 
             </div>
             <div class="section-content">
                 <h3>Below you can find a code snippet used in my first project, recreating the Netmatters Homepage:</h3>
                 <div class="container__code">
-                <code>
-                    <pre>
-                        @mixin viewport($break) {
-                            
-                            @if $break == "small" { // small generally used for mobile phones 
-                                @media (min-width: $brkpoint-sm) and (max-width: #{$brkpoint-md - 1}) { // between 320px and 767px
-                                    @content;
-                                }
-                            }
-                            @else if $break == "smedium" {
-                                @media (min-width: $brkpoint-smd) and (max-width: #{brkpoint-md - 1}) { // between 650px and 767px
-                                    @content;
-                                }
-                            }
-                            @else if $break == "medium" {
-                                @media (min-width: $brkpoint-md) and (max-width: #{$brkpoint-lg - 1}) { // between 768px and 991px
-                                    @content;
-                                }
-                            }
-                            @else if $break == "large" { // large generally used for desktop monitors
-                                @media (min-width: $brkpoint-lg) and (max-width: #{$brkpoint-xlg - 1}) { // between 992px and 1259px
-                                    @content;
-                                }
-                            }
-                            @else if $break == "x-large" { // extra large
-                                @media (min-width: $brkpoint-xlg) { // greater than 1260px
-                                    @content;
-                                }
-                            }
-                            @else {
-                                @error "No value could be retrieved for break for `#{$break}`";
-                            }
-                        }
-                    </pre>
-                </code>
-
+                <pre>
+                    <code class="language-scss">
+@mixin viewport($break) {
+    
+    @if $break == "small" { // small generally used for mobile phones 
+        @media (min-width: $brkpoint-sm) and (max-width: #{$brkpoint-md - 1}) { // between 320px and 767px
+            @content;
+        }
+    }
+    @else if $break == "smedium" {
+        @media (min-width: $brkpoint-smd) and (max-width: #{$brkpoint-md - 1}) { // between 650px and 767px
+            @content;
+        }
+    }
+    @else if $break == "medium" {
+        @media (min-width: $brkpoint-md) and (max-width: #{$brkpoint-lg - 1}) { // between 768px and 991px
+            @content;
+        }
+    }
+    @else if $break == "large" { // large generally used for desktop monitors
+        @media (min-width: $brkpoint-lg) and (max-width: #{$brkpoint-xlg - 1}) { // between 992px and 1259px
+            @content;
+        }
+    }
+    @else if $break == "x-large" { // extra large
+        @media (min-width: $brkpoint-xlg) { // greater than 1260px
+            @content;
+        }
+    }
+    @else {
+        @error "No value could be retrieved for break for `#{$break}`";
+    }
+}
+                    </code>
+            </pre>
+                
             </div>
-
-            
-
-            
-
+ 
             <p> This SASS code is used all over the webpage. It allows the use of styling certain elements at certain screen sizes. With this mixin, you call it within the CSS somewhere
                 using the example code snippet below:
             </p>
 
             <div class="container__code">
-                <code>
-                    <pre>
-                        @include viewport(large) {
-                            width: 30%;
-                        }
-                    </pre>
-                </code>
+                <pre>
+                    <code class="language-scss">
+@include viewport(large) {
+    width: 30%;
+}
+                    </code>
+                </pre>
 
             </div>
 
@@ -108,40 +105,40 @@
         <div class="container__center ishidden__section">
             <div class="section-title">
                 <h2 class="h1 text-center">JavaScript</h2>
-                <button class="toggle-section "><svg class="icon icon-circle-right"><use xlink:href="#icon-circle-right"></use></svg></button> 
+                <button class="toggle-section "><svg class="icon icon-chevron-circle-right"><use xlink:href="#icon-chevron-circle-right"></use></svg></use></svg></button> 
                 
             </div>
             <div class="section-content">
                 <h3>Below you can find a code snippet used on this very portfolio:</h3>
                 <div class="container__code">
-                <code>
-                    <pre>
-                        // Section Toggle
-                        const triangle = document.getElementsByClassName("toggle-section");
-                        const rotate = document.getElementsByClassName("rotate");
-                        const sectionContent = document.getElementsByClassName("section-content");
+                <pre>
+                    <code class="language-javascript">
+// Section Toggle
+const triangle = document.getElementsByClassName("toggle-section");
+const rotate = document.getElementsByClassName("rotate");
+const sectionContent = document.getElementsByClassName("section-content");
 
-                        for (let i = 0; i < triangle.length; i++)
-                        {
-                            sectionContent[i].style.display = "block";
-                            
-                            triangle[i].addEventListener("click", function () {
-                                
-                                this.classList.toggle("rotate");
+for (let i = 0; i < triangle.length; i++)
+{
+    sectionContent[i].style.display = "block";
+    
+    triangle[i].addEventListener("click", function () {
+        
+        this.classList.toggle("rotate");
 
-                                if (sectionContent[i].style.display === "block")
-                                {
-                                    sectionContent[i].style.display = "none";
-                                }
-                                else
-                                {
-                                    sectionContent[i].style.display = "block";
-                                }
+        if (sectionContent[i].style.display === "block")
+        {
+            sectionContent[i].style.display = "none";
+        }
+        else
+        {
+            sectionContent[i].style.display = "block";
+        }
 
-                            });
-                        }
-                    </pre>
-                </code>
+    });
+}
+                    </code>
+                </pre>
 
             </div>
 
@@ -156,13 +153,13 @@
             <h3>Below you can find an in-depth explination of each section of code listed in the code snippet above:</h3>
 
             <div class="container__code">
-                <code>
-                    <pre>
-                        const triangle = document.getElementsByClassName("toggle-section");
-                        const rotate = document.getElementsByClassName("rotate");
-                        const sectionContent = document.getElementsByClassName("section-content");
-                    </pre>
-                </code>
+                <pre>
+                    <code class="language-javascript">
+const triangle = document.getElementsByClassName("toggle-section");
+const rotate = document.getElementsByClassName("rotate");
+const sectionContent = document.getElementsByClassName("section-content");
+                    </code>
+                </pre>
             </div>
 
             <p>To start with, we must locate the class names associated with the button and the section of content we want to display or hide and store
@@ -172,14 +169,14 @@
 
 
             <div class="container__code">
-                <code>
-                    <pre>
-                        for (let i = 0; i < triangle.length; i++)
-                        {
-                            sectionContent[i].style.display = "block";
-                            ...
-                    </pre>
-                </code>
+                <pre>
+                    <code class="language-javascript">
+for (let i = 0; i < triangle.length; i++)
+{
+    sectionContent[i].style.display = "block";
+    ...
+                    </code>
+                </pre>
             </div>
 
             <p>Next, we start a for loop to loop through all the buttons found within the triangle variable. Whilst looping through all these buttons, we set the
@@ -187,14 +184,14 @@
             </p>
 
             <div class="container__code">
-                <code>
-                    <pre>
-                        triangle[i].addEventListener("click", function () {
-                                
-                            this.classList.toggle("rotate");
-                            ...
-                    </pre>
-                </code>
+                <pre>
+                    <code class="language-javascript">
+    triangle[i].addEventListener("click", function () {
+            
+        this.classList.toggle("rotate");
+        ...
+                    </code>
+                </pre>
             </div>
 
             <p>Now, within the for loop we also add an event listener to every button contained within the triangle variable. In this case it means that whenever
@@ -203,21 +200,21 @@
             </p>
 
             <div class="container__code">
-                <code>
-                    <pre>
-                            if (sectionContent[i].style.display === "block")
-                            {
-                                sectionContent[i].style.display = "none";
-                            }
-                            else
-                            {
-                                sectionContent[i].style.display = "block";
-                            }
+                <pre>
+                    <code class="language-javascript">
+        if (sectionContent[i].style.display === "block")
+        {
+            sectionContent[i].style.display = "none";
+        }
+        else
+        {
+            sectionContent[i].style.display = "block";
+        }
 
-                        });
-                    }
-                    </pre>
-                </code>
+    });
+}
+                    </code>
+                </pre>
             </div>
 
             <p>Finally, within the event listener we also add an if statement which checks to see if the section of content that corrosponds with the button pressed is showing or not.
@@ -232,25 +229,25 @@
         <div class="container__center ishidden__section">
             <div class="section-title">
                 <h2 class="h1 text-center">JavaScript Arrays</h2>
-                <button class="toggle-section "><svg class="icon icon-circle-right"><use xlink:href="#icon-circle-right"></use></svg></button> 
+                <button class="toggle-section "><svg class="icon icon-chevron-circle-right"><use xlink:href="#icon-chevron-circle-right"></use></svg></use></svg></button> 
                 
             </div>
             <div class="section-content">
                 <h3>Below you can find a code snippet used in my JavaScript Arrays project:</h3>
                 <div class="container__code">
-                <code>
-                    <pre>
-                        function createUser(userEmail) {
-                            let user = {
-                                email: `${userEmail}`,
-                                images: [],
-                                
-                            };
-                            
-                            userArray.push(user);
-                        }
-                    </pre>
-                </code>
+                <pre>
+                    <code class="language-javascript">
+function createUser(userEmail) {
+    let user = {
+        email: `${userEmail}`,
+        images: [],
+        
+    };
+    
+    userArray.push(user);
+}
+                    </code>
+                </pre>
 
             </div>
 
@@ -263,30 +260,30 @@
             <h3>Below you can find an example and detailed explination of where the array is used within the JavaScript code above:</h3>
 
             <div class="container__code">
-                <code>
-                    <pre>
-                        function addImage(emailText) {
-   
-                            if (emailText.length === 0) 
-                            {
-                                alert("Error: No emails can be found"); 
-                            }
-                            else
-                            {
-                                for (let i = 0; i < userArray.length; i++)
-                                {
-                                    if(userArray[i].email === emailText)
-                                    {
-                                        userArray[i].images.push(`&lt;li&gt;&lt;img src=${currentImgURL} alt='${currentImgDesc}' width=200 height=200&gt;&lt;/li&gt;`)
-                                        
-                                        fetchImage();
-                                    }
-                                }
-                            }
-                            
-                        }
-                    </pre>
-                </code>
+                <pre>
+                    <code class="language-javascript">
+function addImage(emailText) {
+
+    if (emailText.length === 0) 
+    {
+        alert("Error: No emails can be found"); 
+    }
+    else
+    {
+        for (let i = 0; i < userArray.length; i++)
+        {
+            if(userArray[i].email === emailText)
+            {
+                userArray[i].images.push(`&lt;li&gt;&lt;img src=${currentImgURL} alt='${currentImgDesc}' width=200 height=200&gt;&lt;/li&gt;`)
+                
+                fetchImage();
+            }
+        }
+    }
+    
+}
+                    </code>
+                </pre>
 
             </div>
 
@@ -294,15 +291,15 @@
             </p>
 
             <div class="container__code">
-                <code>
-                    <pre>
+                <pre>
+                    <code class="language-javascript">
 
-                            if (emailText.length === 0) 
-                            {
-                                alert("Error: No emails can be found"); 
-                            }   
-                    </pre>
-                </code>
+    if (emailText.length === 0) 
+    {
+        alert("Error: No emails can be found"); 
+    }   
+                    </code>
+                </pre>
 
             </div>
 
@@ -311,18 +308,18 @@
             </p>
 
             <div class="container__code">
-                <code>
-                    <pre>
+                <pre>
+                    <code class="language-javascript">
 
-                            else
-                            {
-                                for (let i = 0; i < userArray.length; i++)
-                                {
-                                   ...
-                                }
-                            } 
-                    </pre>
-                </code>
+    else
+    {
+        for (let i = 0; i < userArray.length; i++)
+        {
+            ...
+        }
+    } 
+                    </code>
+                </pre>
 
             </div>
 
@@ -331,20 +328,20 @@
                 the 'userArray' array.
             </p>
             <div class="container__code">
-                <code>
-                    <pre>
+                <pre>
+                    <code class="language-javascript">
 
                           
-                            if(userArray[i].email === emailText)
-                            {
-                                userArray[i].images.push(`&lt;li&gt;&lt;img src=${currentImgURL} alt='${currentImgDesc}' width=200 height=200&gt;&lt;/li&gt;`)
-                                    
-                                fetchImage();
-                            }
+            if(userArray[i].email === emailText)
+            {
+                userArray[i].images.push(`&lt;li&gt;&lt;img src=${currentImgURL} alt='${currentImgDesc}' width=200 height=200&gt;&lt;/li&gt;`)
+                    
+                fetchImage();
+            }
                                 
                             
-                    </pre>
-                </code>
+                    </code>
+                </pre>
 
             </div>
 
@@ -355,14 +352,14 @@
                 image fetcher in a list. Finally, the function 'fetchImage()' is called, which refreshes the image fetcher with a new image.
             </p>
             <div class="container__code">
-                <code>
-                    <pre>
-                        btnAddImage.addEventListener('click', function () { 
-                            addImage(currentEmailText.textContent);
-                            regenerateImages();
-                        });         
-                    </pre>
-                </code>
+                <pre>
+                    <code class="language-javascript">
+btnAddImage.addEventListener('click', function () { 
+    addImage(currentEmailText.textContent);
+    regenerateImages();
+});         
+                    </code>
+                </pre>
 
             </div>
 
@@ -378,44 +375,44 @@
         <div class="container__center ishidden__section">
             <div class="section-title">
                 <h2 class="h1 text-center">PHP</h2>
-                <button class="toggle-section "><svg class="icon icon-circle-right"><use xlink:href="#icon-circle-right"></use></svg></button> 
+                <button class="toggle-section "><svg class="icon icon-chevron-circle-right"><use xlink:href="#icon-chevron-circle-right"></use></svg></use></svg></button> 
                 
             </div>
             <div class="section-content">
                 <h3>Below you can find a code snippet used in my Netmatters Contact Us page:</h3>
                 <div class="container__code">
-                <code>
-                    <pre>
+                <pre>
+                    <code class="language-php">
                         
-                        function postData($name, $email, $companyName, $telephone, $message, $marketing)
-                        {
-                            include("dbConnection.php");
+function postData($name, $email, $companyName, $telephone, $message, $marketing)
+{
+    include("dbConnection.php");
 
-                            try {
-                                $sql = $conn->prepare('
-                                    INSERT INTO enquiries (name, email, company_name, telephone, message, marketing)
-                                    VALUES (:name, :email, :company_name, :telephone, :message, :marketing);
-                                ');
+    try {
+        $sql = $conn->prepare('
+            INSERT INTO enquiries (name, email, company_name, telephone, message, marketing)
+            VALUES (:name, :email, :company_name, :telephone, :message, :marketing);
+        ');
 
-                                $sql->bindValue(":name", $name, PDO::PARAM_STR);
-                                $sql->bindValue(":email", $email, PDO::PARAM_STR);
-                                $sql->bindValue(":company_name", $companyName, PDO::PARAM_STR);
-                                $sql->bindValue(":telephone", $telephone, PDO::PARAM_STR);
-                                $sql->bindValue(":message", $message, PDO::PARAM_STR);
-                                $sql->bindValue(":marketing", $marketing, PDO::PARAM_STR);
+        $sql->bindValue(":name", $name, PDO::PARAM_STR);
+        $sql->bindValue(":email", $email, PDO::PARAM_STR);
+        $sql->bindValue(":company_name", $companyName, PDO::PARAM_STR);
+        $sql->bindValue(":telephone", $telephone, PDO::PARAM_STR);
+        $sql->bindValue(":message", $message, PDO::PARAM_STR);
+        $sql->bindValue(":marketing", $marketing, PDO::PARAM_STR);
 
 
-                                $sql->execute();
-                                return true;
-                            }
-                            catch (PDOException $pe)
-                            {
-                                echo 'Unable to send data ' . $pe->getMessage();
-                                exit;
-                            }
-                        }
-                    </pre>
-                </code>
+        $sql->execute();
+        return true;
+    }
+    catch (PDOException $pe)
+    {
+        echo 'Unable to send data ' . $pe->getMessage();
+        exit;
+    }
+}
+                    </code>
+                </pre>
 
             </div>
 
@@ -426,14 +423,14 @@
             <h3>Below you can find a detailed explination of how the PHP code above, split into sections:</h3>
 
             <div class="container__code">
-                <code>
-                    <pre>
-                        function postData($name, $email, $companyName, $telephone, $message, $marketing)
-                        {
-                            include("dbConnection.php");
-                            ...
-                    </pre>
-                </code>
+                <pre>
+                    <code class="language-php">
+function postData($name, $email, $companyName, $telephone, $message, $marketing)
+{
+    include("dbConnection.php");
+    ...
+                    </code>
+                </pre>
 
             </div>
 
@@ -442,16 +439,16 @@
             </p>
 
             <div class="container__code">
-                <code>
-                    <pre>
-                        try {
-                            $sql = $conn->prepare('
-                                INSERT INTO enquiries (name, email, company_name, telephone, message, marketing)
-                                VALUES (:name, :email, :company_name, :telephone, :message, :marketing);
-                            ');
-                            ...
-                    </pre>
-                </code>
+                <pre>
+                    <code class="language-php">
+    try {
+            $sql = $conn->prepare('
+                INSERT INTO enquiries (name, email, company_name, telephone, message, marketing)
+                VALUES (:name, :email, :company_name, :telephone, :message, :marketing);
+            ');
+            ...
+                    </code>
+                </pre>
 
             </div>
 
@@ -462,18 +459,18 @@
             </p>
 
             <div class="container__code">
-                <code>
-                    <pre>
+                <pre>
+                    <code class="language-php">
 
-                            $sql->bindValue(":name", $name, PDO::PARAM_STR);
-                            $sql->bindValue(":email", $email, PDO::PARAM_STR);
-                            $sql->bindValue(":company_name", $companyName, PDO::PARAM_STR);
-                            $sql->bindValue(":telephone", $telephone, PDO::PARAM_STR);
-                            $sql->bindValue(":message", $message, PDO::PARAM_STR);
-                            $sql->bindValue(":marketing", $marketing, PDO::PARAM_STR);
-                            ...
-                    </pre>
-                </code>
+            $sql->bindValue(":name", $name, PDO::PARAM_STR);
+            $sql->bindValue(":email", $email, PDO::PARAM_STR);
+            $sql->bindValue(":company_name", $companyName, PDO::PARAM_STR);
+            $sql->bindValue(":telephone", $telephone, PDO::PARAM_STR);
+            $sql->bindValue(":message", $message, PDO::PARAM_STR);
+            $sql->bindValue(":marketing", $marketing, PDO::PARAM_STR);
+            ...
+                    </code>
+                </pre>
 
             </div>
 
@@ -481,14 +478,14 @@
                 These variables are passed into the function from earlier when it has been called elsewhere. All of the variables listed are also set as a PDO (PHP Data Objects) strings to the database.
             </p>
             <div class="container__code">
-                <code>
-                    <pre>    
-                            $sql->execute();
-                            return true;
-                        }
-                        ...    
-                    </pre>
-                </code>
+                <pre>
+                    <code class="language-php">    
+            $sql->execute();
+            return true;
+        }
+        ...    
+                    </code>
+                </pre>
 
             </div>
 
@@ -497,16 +494,16 @@
             <p>Finally within the try block, the SQL statement is executed to the database and the value true is returned.
             </p>
             <div class="container__code">
-                <code>
-                    <pre>
-                        catch (PDOException $pe)
-                        {
-                            echo 'Unable to send data ' . $pe->getMessage();
-                            exit;
-                        }
-                    }     
-                    </pre>
-                </code>
+                <pre>
+                    <code class="language-php">
+    catch (PDOException $pe)
+    {
+        echo 'Unable to send data ' . $pe->getMessage();
+        exit;
+    }
+}     
+                    </code>
+                </pre>
 
             </div>
 
@@ -516,9 +513,10 @@
                 (so no code after this line being executed can be run).
             </p>
             <br>
-            <hr>
-            </div>
             
+            </div>
+            <br>
+            <hr>
         </div>
 
         <?php include ("php/footer.php"); ?>
@@ -527,5 +525,9 @@
     <script src="js/navMenuToggle.js"></script>
     <script src="js/sectionToggle.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    
 </body>
 </html>

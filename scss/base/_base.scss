@@ -29,12 +29,19 @@
 }
 
 .margin-bottom {
+    @include viewport(small) {
+        margin-bottom: toRem(30);
+    }
     @include viewport(medium) {
         margin-bottom: toRem(55);
     }
 
     @include viewport(large) {
         margin-bottom: toRem(55);
+    }
+
+    @include viewport(x-large) {
+        margin-bottom: toRem(30);
     }
 }
 
@@ -116,13 +123,6 @@ p {
     display: inline;
 }
 
-code {
-    display:inline-block;
-    color: white;
-    margin-left: -160px;
-    margin-right: 20px;
-}
-
 .section-content {
     display: block;
 
@@ -140,4 +140,9 @@ code {
 .hidden-all {
     display: none;
 }
+
+
+
+
+
 

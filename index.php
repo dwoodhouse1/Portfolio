@@ -121,6 +121,7 @@
     <title>Drew Woodhouse | SCS Portfolio</title>
 
     <link rel="stylesheet" href="css/application.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -147,83 +148,107 @@
 
                     <div class="project__grid">
 
-                        <a href="http://netmatters.drew-woodhouse.netmatters-scs.co.uk" target="_blank" class="project__block project__block--hover">
+                        <div class="project__block project__block--hover">
                             <div class="project__block--content project__block--content-height">
                                 <img src="img/netmatters-homepage.png" alt="Netmatters Homepage" class="project__block--image">
                                 <div class="project__block-text margin-left margin-bottom">
                                     <h2 class="h3 text-center">Netmatters Homepage</h2>
-                                    <p>The entire Netmatters Homepage recreated using HTML, CSS/SASS, JavaScript & PHP<br>&nbsp;</p>
+                                    <svg class="icon icon-html5"><use xlink:href="#icon-html5"></use></svg>
+                                    <svg class="icon icon-css3"><use xlink:href="#icon-css3"></use></svg>
+                                    <svg class="icon icon-sass"><use xlink:href="#icon-sass"></use></svg>
+                                    <svg class="icon icon-javascript"><use xlink:href="#icon-javascript"></use></svg>
+                                    <svg class="icon icon-php"><use xlink:href="#icon-php"></use></svg>
+                                    <p>The entire Netmatters Homepage recreated using HTML, CSS/SASS, JavaScript & PHP.<br>&nbsp;</p>
+                                    <a href="http://netmatters.drew-woodhouse.netmatters-scs.co.uk" target="_blank" class="btn__project-card btn__project-card-position-live">Live Site</a>
+                                    <a href="https://github.com/dwoodhouse1/HTML-And-CSS-Assignment" target="_blank" class="btn__project-card btn__project-card-position-repo">Code Repo</a>
                                 </div>
                             </div>
-                            <div class="project__block--view">
-                                <h3>View the Project <svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></h3>
-                            </div>
-                        </a>
+                        </div>
 
-                        <a href="http://js-array.drew-woodhouse.netmatters-scs.co.uk" target="_blank" class="project__block project__block--hover">
+                        <div class="project__block project__block--hover">
                             <div class="project__block--content project__block--content-height">
                                 <img src="img/JS-Array.png" alt="JavaScript Array Assignment Webpage">
                                 <div class="project__block-text margin-left margin-bottom">
                                     <h2 class="h3 text-center">JavaScript Array</h2>
-                                    <p class="break">An Image to Email Assigner where users can enter their email address and assign images from an image API to them.</p>
+                                    <svg class="icon icon-html5"><use xlink:href="#icon-html5"></use></svg>
+                                    <svg class="icon icon-css3"><use xlink:href="#icon-css3"></use></svg>
+                                    <svg class="icon icon-sass"><use xlink:href="#icon-sass"></use></svg>
+                                    <svg class="icon icon-javascript"><use xlink:href="#icon-javascript"></use></svg>
+                                    <p class="break">An Image to Email Assigner where users can enter their email address and assign images from an image API to them.<br>&nbsp;</p>
+                                    <a href="https://js-array.drew-woodhouse.netmatters-scs.co.uk" target="_blank" class="btn__project-card btn__project-card-position-live">Live Site</a>
+                                    <a href="https://github.com/dwoodhouse1/JS-Array" target="_blank" class="btn__project-card btn__project-card-position-repo">Code Repo</a>
                                 </div>
                             </div>
-                            <div class="project__block--view">
-                                <h3>View the Project <svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></h3>
-                            </div>
-                        </a>
+                           
+                        </div>
                         
-                        <a href="#" target="_blank" class="project__block project__block--hover">
+                        <div class="project__block project__block--hover">
                             <div class="project__block--content project__block--content-height">
                                 <img src="img/coming-soon.PNG" alt="Coming Soon">
                                 <div class="project__block-text margin-left margin-bottom">
                                     <h2 class="h3 text-center">Project 3</h2>
-                                    <p>Coming soon...<br>&nbsp;<br>&nbsp;</p>
+                                    <svg class="icon icon-html5"><use xlink:href="#icon-html5"></use></svg>
+                                    <svg class="icon icon-css3"><use xlink:href="#icon-css3"></use></svg>
+                                    <svg class="icon icon-sass"><use xlink:href="#icon-sass"></use></svg>
+                                    <svg class="icon icon-javascript"><use xlink:href="#icon-javascript"></use></svg>
+                                    <svg class="icon icon-php"><use xlink:href="#icon-php"></use></svg>
+                                    <p>Coming soon...<br>&nbsp;<br>&nbsp;<br>&nbsp;</p>
+                                    <a href="#" class="btn__project-card btn__project-card-position-live">Live Site</a>
+                                    <a href="#" class="btn__project-card btn__project-card-position-repo">Code Repo</a>
                                 </div>
                             </div>
-                            <div class="project__block--view">
-                                <h3>View the Project <svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></h3>
-                            </div>
-                        </a>
+                        </div>
 
-                        <a href="#" target="_blank" class="project__block project__block--hover">
+                        <!-- <div class="project__block project__block--hover">
                             <div class="project__block--content project__block--content-height">
                                 <img src="img/coming-soon.PNG" alt="Coming Soon">
                                 <div class="project__block-text margin-left margin-bottom">
-                                    <h2 class="h3 text-center">Project 4</h2>
+                                    <h2 class="h3 text-center">Project 3</h2>
+                                    <svg class="icon icon-html5"><use xlink:href="#icon-html5"></use></svg>
+                                    <svg class="icon icon-css3"><use xlink:href="#icon-css3"></use></svg>
+                                    <svg class="icon icon-sass"><use xlink:href="#icon-sass"></use></svg>
+                                    <svg class="icon icon-javascript"><use xlink:href="#icon-javascript"></use></svg>
+                                    <svg class="icon icon-php"><use xlink:href="#icon-php"></use></svg>
                                     <p>Coming soon...<br>&nbsp;<br>&nbsp;</p>
+                                    <a href="#" class="btn__project-card btn__project-card-position-live">Live Site</a>
+                                    <a href="#" class="btn__project-card btn__project-card-position-repo">Code Repo</a>
                                 </div>
                             </div>
-                            <div class="project__block--view">
-                                <h3>View the Project <svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></h3>
-                            </div>
-                        </a>
+                        </div> -->
 
-                        <a href="#" target="_blank" class="project__block project__block--hover">
+                        <!-- <div class="project__block project__block--hover">
                             <div class="project__block--content project__block--content-height">
                                 <img src="img/coming-soon.PNG" alt="Coming Soon">
-                                <div class="project__block-text margin-left">
-                                    <h2 class="h3 text-center">Project 5</h2>
+                                <div class="project__block-text margin-left margin-bottom">
+                                    <h2 class="h3 text-center">Project 3</h2>
+                                    <svg class="icon icon-html5"><use xlink:href="#icon-html5"></use></svg>
+                                    <svg class="icon icon-css3"><use xlink:href="#icon-css3"></use></svg>
+                                    <svg class="icon icon-sass"><use xlink:href="#icon-sass"></use></svg>
+                                    <svg class="icon icon-javascript"><use xlink:href="#icon-javascript"></use></svg>
+                                    <svg class="icon icon-php"><use xlink:href="#icon-php"></use></svg>
                                     <p>Coming soon...<br>&nbsp;<br>&nbsp;</p>
+                                    <a href="#" class="btn__project-card btn__project-card-position-live">Live Site</a>
+                                    <a href="#" class="btn__project-card btn__project-card-position-repo">Code Repo</a>
                                 </div>
                             </div>
-                            <div class="project__block--view">
-                                <h3>View the Project <svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></h3>
-                            </div>
-                        </a>
+                        </div> -->
 
-                        <a href="#" target="_blank" class="project__block project__block--hover">
+                        <!-- <div class="project__block project__block--hover">
                             <div class="project__block--content project__block--content-height">
                                 <img src="img/coming-soon.PNG" alt="Coming Soon">
-                                <div class="project__block-text margin-left">
-                                    <h2 class="h3 text-center">Project 6</h2>
+                                <div class="project__block-text margin-left margin-bottom">
+                                    <h2 class="h3 text-center">Project 3</h2>
+                                    <svg class="icon icon-html5"><use xlink:href="#icon-html5"></use></svg>
+                                    <svg class="icon icon-css3"><use xlink:href="#icon-css3"></use></svg>
+                                    <svg class="icon icon-sass"><use xlink:href="#icon-sass"></use></svg>
+                                    <svg class="icon icon-javascript"><use xlink:href="#icon-javascript"></use></svg>
+                                    <svg class="icon icon-php"><use xlink:href="#icon-php"></use></svg>
                                     <p>Coming soon...<br>&nbsp;<br>&nbsp;</p>
+                                    <a href="#" class="btn__project-card btn__project-card-position-live">Live Site</a>
+                                    <a href="#" class="btn__project-card btn__project-card-position-repo">Code Repo</a>
                                 </div>
                             </div>
-                            <div class="project__block--view">
-                                <h3>View the Project <svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></h3>
-                            </div>
-                        </a>
+                        </div> -->
                     </div>
                 </section>
             </div>
